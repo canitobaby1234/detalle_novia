@@ -32,14 +32,15 @@
         .heart {
             position: absolute;
             color: #ff69b4;
-            font-size: 20px;
+            font-size: 35px;
             animation: float 4s infinite ease-in-out;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 1; }
+            50% { transform: translateY(50vh) rotate(180deg) scale(1.3); opacity: 0.9; }
+            100% { transform: translateY(-100px) rotate(360deg) scale(0.8); opacity: 0; }
         }
 
         .letter-effects {
@@ -54,17 +55,17 @@
 
         .letter {
             position: absolute;
-            font-size: 30px;
+            font-size: 40px;
             font-weight: bold;
             color: #ffd700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
             animation: letterFloat 6s infinite ease-in-out;
         }
 
         @keyframes letterFloat {
-            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 1; }
-            50% { transform: translateY(50vh) rotate(180deg) scale(1); opacity: 0.8; }
-            100% { transform: translateY(-100px) rotate(360deg) scale(0.5); opacity: 0; }
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 1; }
+            50% { transform: translateY(50vh) rotate(180deg) scale(1.2); opacity: 0.9; }
+            100% { transform: translateY(-100px) rotate(360deg) scale(0.8); opacity: 0; }
         }
 
         .container {
@@ -247,27 +248,31 @@
         .explosion-heart {
             position: fixed;
             color: #ff69b4;
-            font-size: 30px;
+            font-size: 50px;
             pointer-events: none;
-            animation: heartBoom 1.5s ease-out forwards;
+            animation: heartBoom 2s ease-out forwards;
             z-index: 1000;
         }
 
         @keyframes heartBoom {
             0% { 
-                transform: scale(0.5) rotate(0deg); 
+                transform: scale(0.3) rotate(0deg); 
                 opacity: 1; 
             }
             25% { 
-                transform: scale(1.5) rotate(90deg); 
+                transform: scale(2) rotate(90deg); 
                 opacity: 1; 
             }
             50% { 
-                transform: scale(2) rotate(180deg); 
-                opacity: 0.8; 
+                transform: scale(3) rotate(180deg); 
+                opacity: 0.9; 
+            }
+            75% { 
+                transform: scale(2.5) rotate(270deg); 
+                opacity: 0.7; 
             }
             100% { 
-                transform: scale(0.3) rotate(360deg) translateX(300px) translateY(-300px); 
+                transform: scale(0.2) rotate(360deg) translateX(400px) translateY(-400px); 
                 opacity: 0; 
             }
         }
@@ -285,7 +290,7 @@
     <div class="letter-effects" id="lettersContainer"></div>
     
     <div class="container">
-        <h1 class="title">Para Mi Amor 💕</h1>
+        <h1 class="title">Para Mi Iris 💕</h1>
         
         <div id="phrasesContainer">
             <div class="phrase" id="currentPhrase"></div>
@@ -299,7 +304,7 @@
 
         <div class="special-song" id="specialSong">
             <div class="special-message">
-                💜 Esta canción es muy especial para mí, porque cada vez que la escucho pienso en ti y en lo mucho que significas en mi vida. Eres la melodía más hermosa que ha llegado a mi corazón 💜
+                💜 Esta canción es muy especial para mí, porque cada vez que la escucho pienso en ti y en lo mucho que significas en mi vida, Elizabeth. Eres la melodía más hermosa que ha llegado a mi corazón, mi Iris 💜
             </div>
             <div class="song-item">
                 <div class="song-title">Ribaste mi corazón - Adán Zapata</div>
@@ -322,12 +327,12 @@
 
     <script>
         const frases = [
-            "Hola amor, espero que estés teniendo una linda noche tan bonita como tú, mi luna bella ✨",
-            "Te quería decir algo importante...",
-            "Este es un detalle para ti, hecho con todo mi corazón 💕",
-            "Cada canción aquí representa lo que siento por ti 🎶",
-            "Me encanta escucharte, me haces feliz como nadie en el mundo 💜",
-            "Y solo quiero preguntarte algo muy especial..."
+            "Hola mi hermosa Iris, espero que estés teniendo una linda noche tan bonita como tú, mi luna bella ✨",
+            "Elizabeth, te quería decir algo muy importante...",
+            "Este es un detalle especial para ti, hecho con todo mi corazón 💕",
+            "Cada canción aquí representa lo que siento por ti, mi Iris 🎶",
+            "Me encanta escucharte, me haces feliz como nadie en el mundo, Elizabeth 💜",
+            "Y solo quiero preguntarte algo muy especial, mi amor..."
         ];
 
         const videos = [
@@ -424,16 +429,16 @@
         }
 
         function explorarCorazones() {
-            for (let i = 0; i < 25; i++) {
+            for (let i = 0; i < 30; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.className = 'explosion-heart';
-                    heart.innerHTML = ['💖', '💕', '💗', '💓', '💝'][Math.floor(Math.random() * 5)];
+                    heart.innerHTML = ['💖', '💕', '💗', '💓', '💝', '❤️', '🌹', '✨'][Math.floor(Math.random() * 8)];
                     
                     const centerX = window.innerWidth / 2;
                     const centerY = window.innerHeight / 2;
-                    heart.style.left = (centerX + (Math.random() - 0.5) * 400) + 'px';
-                    heart.style.top = (centerY + (Math.random() - 0.5) * 400) + 'px';
+                    heart.style.left = (centerX + (Math.random() - 0.5) * 500) + 'px';
+                    heart.style.top = (centerY + (Math.random() - 0.5) * 500) + 'px';
                     
                     document.body.appendChild(heart);
                     
@@ -441,8 +446,8 @@
                         if (heart.parentNode) {
                             heart.remove();
                         }
-                    }, 1500);
-                }, i * 30);
+                    }, 2000);
+                }, i * 25);
             }
         }
 
@@ -473,7 +478,7 @@
             
             if (id === 'latidos') {
                 playerDiv.innerHTML = `
-                    <div style="margin-bottom: 10px; font-weight: bold;">🎵 Reproduciendo tu canción favorita:</div>
+                    <div style="margin-bottom: 10px; font-weight: bold;">🎵 Para mi hermosa Iris:</div>
                     <iframe src="https://open.spotify.com/embed/track/6rov2Cu3KFynohtdBOKQsW?utm_source=generator" 
                             width="300" height="152" frameBorder="0" 
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
@@ -485,7 +490,7 @@
                 `;
             } else {
                 playerDiv.innerHTML = `
-                    <div style="margin-bottom: 10px; font-weight: bold;">💕 Nuestra canción especial:</div>
+                    <div style="margin-bottom: 10px; font-weight: bold;">💕 Para mi Elizabeth:</div>
                     <iframe width="300" height="200" 
                             src="https://www.youtube.com/embed/KCXdzuxFbqM?autoplay=1" 
                             frameborder="0" 
@@ -511,37 +516,48 @@
             setInterval(() => {
                 const heart = document.createElement('div');
                 heart.className = 'heart';
-                heart.innerHTML = '💖';
+                heart.innerHTML = ['💖', '💕', '💗', '💓', '💝', '❤️'][Math.floor(Math.random() * 6)];
                 heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heart.style.fontSize = (Math.random() * 15 + 30) + 'px';
                 
                 heartsContainer.appendChild(heart);
                 
                 setTimeout(() => {
-                    heart.remove();
-                }, 4000);
-            }, 800);
+                    if (heart.parentNode) {
+                        heart.remove();
+                    }
+                }, 6000);
+            }, 600);
         }
 
         function startLetterEffect() {
             const lettersContainer = document.getElementById('lettersContainer');
-            const letters = ['J', 'I'];
+            const letters = ['E', 'L', 'I', 'Z', 'A', 'B', 'E', 'T', 'H', '💜', 'I', 'R', 'I', 'S', '✨'];
             
             setInterval(() => {
                 const letter = document.createElement('div');
                 letter.className = 'letter';
                 letter.innerHTML = letters[Math.floor(Math.random() * letters.length)];
                 letter.style.left = Math.random() * 100 + '%';
-                letter.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                letter.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                letter.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                letter.style.fontSize = (Math.random() * 15 + 35) + 'px';
+                
+                // Color especial para letras del nombre
+                if (['E', 'L', 'I', 'Z', 'A', 'B', 'T', 'H'].includes(letter.innerHTML)) {
+                    letter.style.color = '#ffb3ff';
+                } else if (['I', 'R', 'S'].includes(letter.innerHTML)) {
+                    letter.style.color = '#ff69b4';
+                }
                 
                 lettersContainer.appendChild(letter);
                 
                 setTimeout(() => {
-                    letter.remove();
-                }, 6000);
-            }, 1200);
+                    if (letter.parentNode) {
+                        letter.remove();
+                    }
+                }, 8000);
+            }, 800);
         }
     </script>
 </body>
