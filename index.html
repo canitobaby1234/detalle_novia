@@ -292,6 +292,50 @@
             .song-grid { grid-template-columns: 1fr; }
             .answer-buttons { flex-direction: column; align-items: center; }
             .container { padding: 10px; }
+            
+            /* Hacer los títulos más pequeños en móvil */
+            .song-title { 
+                font-size: 1em; 
+                padding: 8px;
+                margin-bottom: 10px;
+            }
+            
+            /* Ajustar iframe de Spotify para móvil */
+            .spotify-iframe { 
+                height: 152px;
+                width: 100%;
+                min-height: 152px;
+            }
+            
+            /* Mejorar el espaciado en móvil */
+            .song-item { 
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            /* Hacer el reproductor flotante responsive */
+            .floating-player {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                width: auto;
+            }
+            
+            /* Ajustar iframe de YouTube en móvil */
+            .floating-player iframe {
+                width: 100%;
+                max-width: 280px;
+                height: 180px;
+            }
+            
+            /* Mejorar botones en móvil */
+            .youtube-link {
+                display: block;
+                text-align: center;
+                margin: 10px auto;
+                width: fit-content;
+            }
         }
 
         /* Estilos para la página de celebración */
@@ -432,6 +476,10 @@
             color: white;
             font-family: Arial, sans-serif;
             max-width: 320px;
+            resize: both;
+            overflow: auto;
+            min-width: 280px;
+            min-height: 200px;
         }
 
         .close-btn {
@@ -678,11 +726,12 @@
             
             playerDiv.innerHTML = `
                 <div style="margin-bottom: 10px; font-weight: bold;">💕 Para mi Elizabeth:</div>
-                <iframe width="280" height="200" 
+                <iframe width="100%" height="200" 
                         src="https://www.youtube.com/embed/KCXdzuxFbqM?autoplay=1" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen></iframe>
+                        allowfullscreen
+                        style="max-width: 280px; border-radius: 10px;"></iframe>
                 <button onclick="document.getElementById('adanPlayer').remove()" 
                         class="close-btn">
                     ❌ Cerrar
@@ -703,7 +752,7 @@
                 } else {
                     // Si dice "Obvio" también es SÍ, pero con Adán Zapata
                     createAdanPlayer();
-                    alert("💜 ¡OBVIO que sí! Elizabeth es tu novia 💜");
+                    alert("💜 ¡OBVIO que sí! Ahora eres la novia de Joel Cano 💜");
                 }
             }, 1000);
         }
