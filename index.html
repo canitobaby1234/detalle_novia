@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor 💕</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: float 4s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .letter-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .letter {
+            position: absolute;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: letterFloat 6s infinite ease-in-out;
+        }
+
+        @keyframes letterFloat {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 1; }
+            50% { transform: translateY(50vh) rotate(180deg) scale(1); opacity: 0.8; }
+            100% { transform: translateY(-100px) rotate(360deg) scale(0.5); opacity: 0; }
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 10px #ff69b4; }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px #ff69b4; }
+        }
+
+        .phrase {
+            font-size: 1.4em;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+
+        .phrase.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .next-btn {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+        }
+
+        .songs-container {
+            display: none;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .song-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .song-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease;
+        }
+
+        .song-item.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .song-title {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .spotify-iframe {
+            width: 100%;
+            height: 152px;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .youtube-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .youtube-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+            text-decoration: none;
+            color: white;
+        }
+
+        .special-song {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            display: none;
+        }
+
+        .special-message {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .final-question {
+            display: none;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .question-text {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .answer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .answer-btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .answer-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+        }
+
+        .answer-btn.obvio {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .answer-btn.obvio:hover {
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+        }
+
+        .explosion-heart {
+            position: fixed;
+            color: #ff69b4;
+            font-size: 30px;
+            pointer-events: none;
+            animation: heartBoom 1.5s ease-out forwards;
+            z-index: 1000;
+        }
+
+        @keyframes heartBoom {
+            0% { 
+                transform: scale(0.5) rotate(0deg); 
+                opacity: 1; 
+            }
+            25% { 
+                transform: scale(1.5) rotate(90deg); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: scale(2) rotate(180deg); 
+                opacity: 0.8; 
+            }
+            100% { 
+                transform: scale(0.3) rotate(360deg) translateX(300px) translateY(-300px); 
+                opacity: 0; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title { font-size: 2em; }
+            .phrase { font-size: 1.2em; padding: 15px; }
+            .song-grid { grid-template-columns: 1fr; }
+            .answer-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="heartsContainer"></div>
+    <div class="letter-effects" id="lettersContainer"></div>
+    
+    <div class="container">
+        <h1 class="title">Para Mi Amor 💕</h1>
+        
+        <div id="phrasesContainer">
+            <div class="phrase" id="currentPhrase"></div>
+            <button class="next-btn" id="nextBtn" onclick="nextPhrase()">Continuar 💖</button>
+        </div>
+
+        <div class="songs-container" id="songsContainer">
+            <h2>🎶 Canciones que me recuerdan a ti 🎶</h2>
+            <div class="song-grid" id="songGrid"></div>
+        </div>
+
+        <div class="special-song" id="specialSong">
+            <div class="special-message">
+                💜 Esta canción es muy especial para mí, porque cada vez que la escucho pienso en ti y en lo mucho que significas en mi vida. Eres la melodía más hermosa que ha llegado a mi corazón 💜
+            </div>
+            <div class="song-item">
+                <div class="song-title">Ribaste mi corazón - Adán Zapata</div>
+                <a href="https://www.youtube.com/watch?v=KCXdzuxFbqM" target="_blank" class="youtube-link">
+                    💕 Escuchar en YouTube
+                </a>
+            </div>
+        </div>
+
+        <div class="final-question" id="finalQuestion">
+            <div class="question-text">
+                💕 ¿Quieres ser mi novia? 💕
+            </div>
+            <div class="answer-buttons">
+                <button class="answer-btn" onclick="playSong('latidos')">Sí 💖</button>
+                <button class="answer-btn obvio" onclick="playSong('adan')">Obvio 💜</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const frases = [
+            "Hola amor, espero que estés teniendo una linda noche tan bonita como tú, mi luna bella ✨",
+            "Te quería decir algo importante...",
+            "Este es un detalle para ti, hecho con todo mi corazón 💕",
+            "Cada canción aquí representa lo que siento por ti 🎶",
+            "Me encanta escucharte, me haces feliz como nadie en el mundo 💜",
+            "Y solo quiero preguntarte algo muy especial..."
+        ];
+
+        const videos = [
+            { titulo: "Tus Latidos - Calibre 50", url: "https://open.spotify.com/embed/track/6rov2Cu3KFynohtdBOKQsW", tipo: "spotify" },
+            { titulo: "Te Encontré - Ulises Chaidez & Eslabón Armado", url: "https://open.spotify.com/embed/track/7l75lYs5TM7BsGS17ojWQe", tipo: "spotify" },
+            { titulo: "Aprender a Quererte - Morat", youtubeUrl: "https://www.youtube.com/watch?v=OukQDrJ7QRQ", tipo: "youtube" },
+            { titulo: "Eso y Más - Camila", youtubeUrl: "https://www.youtube.com/watch?v=v5Wl9_14GTY", tipo: "youtube" },
+            { titulo: "Eres Tú - Reik & Matisse", youtubeUrl: "https://www.youtube.com/watch?v=B5B5pPVEwyw", tipo: "youtube" },
+            { titulo: "Cuando Me Enamoro - Enrique Iglesias", youtubeUrl: "https://www.youtube.com/watch?v=lVdyrZns3Os", tipo: "youtube" }
+        ];
+
+        let currentPhraseIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            startHeartEffect();
+            startLetterEffect();
+            mostrarFrase();
+        });
+
+        function mostrarFrase() {
+            const phraseElement = document.getElementById('currentPhrase');
+            
+            if (currentPhraseIndex < frases.length) {
+                phraseElement.innerHTML = '';
+                phraseElement.classList.add('show');
+                
+                const texto = frases[currentPhraseIndex];
+                let i = 0;
+                
+                function escribir() {
+                    if (i < texto.length) {
+                        phraseElement.innerHTML += texto.charAt(i);
+                        i++;
+                        setTimeout(escribir, 50);
+                    }
+                }
+                
+                escribir();
+            } else {
+                mostrarCanciones();
+            }
+        }
+
+        function nextPhrase() {
+            const phraseElement = document.getElementById('currentPhrase');
+            phraseElement.classList.remove('show');
+            
+            setTimeout(() => {
+                currentPhraseIndex++;
+                mostrarFrase();
+            }, 300);
+        }
+
+        function mostrarCanciones() {
+            document.getElementById('phrasesContainer').style.display = 'none';
+            document.getElementById('songsContainer').style.display = 'block';
+            
+            const songGrid = document.getElementById('songGrid');
+            
+            videos.forEach((video, index) => {
+                setTimeout(() => {
+                    const songItem = document.createElement('div');
+                    songItem.className = 'song-item';
+                    
+                    if (video.tipo === 'spotify') {
+                        songItem.innerHTML = `
+                            <div class="song-title">${video.titulo}</div>
+                            <iframe class="spotify-iframe" src="${video.url}?utm_source=generator" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        `;
+                    } else {
+                        songItem.innerHTML = `
+                            <div class="song-title">${video.titulo}</div>
+                            <a href="${video.youtubeUrl}" target="_blank" class="youtube-link">
+                                🎵 Escuchar en YouTube
+                            </a>
+                        `;
+                    }
+                    
+                    songGrid.appendChild(songItem);
+                    
+                    setTimeout(() => {
+                        songItem.classList.add('show');
+                    }, 100);
+                }, index * 300);
+            });
+            
+            setTimeout(() => {
+                document.getElementById('specialSong').style.display = 'block';
+                
+                setTimeout(() => {
+                    document.getElementById('finalQuestion').style.display = 'block';
+                }, 2000);
+            }, videos.length * 300 + 1000);
+        }
+
+        function explorarCorazones() {
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'explosion-heart';
+                    heart.innerHTML = ['💖', '💕', '💗', '💓', '💝'][Math.floor(Math.random() * 5)];
+                    
+                    const centerX = window.innerWidth / 2;
+                    const centerY = window.innerHeight / 2;
+                    heart.style.left = (centerX + (Math.random() - 0.5) * 400) + 'px';
+                    heart.style.top = (centerY + (Math.random() - 0.5) * 400) + 'px';
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        if (heart.parentNode) {
+                            heart.remove();
+                        }
+                    }, 1500);
+                }, i * 30);
+            }
+        }
+
+        function playSong(id) {
+            explorarCorazones();
+            
+            const existingPlayer = document.getElementById('floatingPlayer');
+            if (existingPlayer) {
+                existingPlayer.remove();
+            }
+            
+            const playerDiv = document.createElement('div');
+            playerDiv.id = 'floatingPlayer';
+            playerDiv.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px;
+                border-radius: 15px;
+                backdrop-filter: blur(10px);
+                border: 2px solid #ff69b4;
+                box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
+                color: white;
+                font-family: Arial, sans-serif;
+            `;
+            
+            if (id === 'latidos') {
+                playerDiv.innerHTML = `
+                    <div style="margin-bottom: 10px; font-weight: bold;">🎵 Reproduciendo tu canción favorita:</div>
+                    <iframe src="https://open.spotify.com/embed/track/6rov2Cu3KFynohtdBOKQsW?utm_source=generator" 
+                            width="300" height="152" frameBorder="0" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                            loading="lazy"></iframe>
+                    <button onclick="document.getElementById('floatingPlayer').remove()" 
+                            style="margin-top: 10px; padding: 5px 10px; background: #ff69b4; border: none; border-radius: 5px; color: white; cursor: pointer;">
+                        ❌ Cerrar
+                    </button>
+                `;
+            } else {
+                playerDiv.innerHTML = `
+                    <div style="margin-bottom: 10px; font-weight: bold;">💕 Nuestra canción especial:</div>
+                    <iframe width="300" height="200" 
+                            src="https://www.youtube.com/embed/KCXdzuxFbqM?autoplay=1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen></iframe>
+                    <button onclick="document.getElementById('floatingPlayer').remove()" 
+                            style="margin-top: 10px; padding: 5px 10px; background: #ff69b4; border: none; border-radius: 5px; color: white; cursor: pointer;">
+                        ❌ Cerrar
+                    </button>
+                `;
+            }
+            
+            document.body.appendChild(playerDiv);
+            
+            setTimeout(() => {
+                alert("💜 Gracias por decir que sí 💜");
+            }, 500);
+        }
+
+        function startHeartEffect() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '💖';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 4000);
+            }, 800);
+        }
+
+        function startLetterEffect() {
+            const lettersContainer = document.getElementById('lettersContainer');
+            const letters = ['J', 'I'];
+            
+            setInterval(() => {
+                const letter = document.createElement('div');
+                letter.className = 'letter';
+                letter.innerHTML = letters[Math.floor(Math.random() * letters.length)];
+                letter.style.left = Math.random() * 100 + '%';
+                letter.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                letter.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                
+                lettersContainer.appendChild(letter);
+                
+                setTimeout(() => {
+                    letter.remove();
+                }, 6000);
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
