@@ -286,95 +286,6 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .title { font-size: 2em; }
-            .phrase { font-size: 1.2em; padding: 15px; }
-            .song-grid { grid-template-columns: 1fr; }
-            .answer-buttons { flex-direction: column; align-items: center; }
-            .container { padding: 10px; }
-            
-            /* Hacer los títulos más pequeños en móvil */
-            .song-title { 
-                font-size: 1em; 
-                padding: 8px;
-                margin-bottom: 10px;
-            }
-            
-            /* Ajustar iframe de Spotify para móvil */
-            .spotify-iframe { 
-                height: 152px;
-                width: 100%;
-                min-height: 152px;
-            }
-            
-            /* Mejorar el espaciado en móvil */
-            .song-item { 
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-            
-            /* Ajustar mensaje de celebración en móvil */
-            .celebration-message {
-                font-size: 1.1em;
-                line-height: 1.4;
-                margin: 20px 10px;
-                padding: 0 10px;
-                word-break: break-word;
-                hyphens: auto;
-            }
-            
-            .celebration-title {
-                font-size: 2.5em;
-                margin-bottom: 20px;
-                padding: 0 10px;
-            }
-            
-            .forever-text {
-                font-size: 1.8em;
-                margin: 20px 10px;
-                padding: 0 10px;
-            }
-            
-            .giant-hearts {
-                gap: 20px;
-                margin: 20px 0;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .heart-with-letters {
-                font-size: 80px;
-            }
-            
-            .letters-overlay {
-                font-size: 20px;
-            }
-            
-            /* Hacer el reproductor flotante responsive */
-            .floating-player {
-                bottom: 10px;
-                right: 10px;
-                left: 10px;
-                max-width: none;
-                width: auto;
-            }
-            
-            /* Ajustar iframe de YouTube en móvil */
-            .floating-player iframe {
-                width: 100%;
-                max-width: 280px;
-                height: 180px;
-            }
-            
-            /* Mejorar botones en móvil */
-            .youtube-link {
-                display: block;
-                text-align: center;
-                margin: 10px auto;
-                width: fit-content;
-            }
-        }
-
         /* Estilos para la página de celebración */
         .celebration-body {
             background: linear-gradient(45deg, #ff69b4, #ff1493, #8a2be2, #4b0082);
@@ -399,11 +310,12 @@
         }
         
         .celebration-title {
-            font-size: 4em;
+            font-size: 3.5em;
             text-align: center;
             margin-bottom: 30px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
             animation: pulse 2s infinite;
+            font-weight: bold;
         }
         
         @keyframes pulse {
@@ -414,8 +326,8 @@
         
         .giant-hearts {
             display: flex;
-            gap: 50px;
-            margin: 40px 0;
+            gap: 30px;
+            margin: 30px 0;
             align-items: center;
             flex-wrap: wrap;
             justify-content: center;
@@ -423,8 +335,9 @@
         
         .heart-with-letters {
             position: relative;
-            font-size: 120px;
+            font-size: 100px;
             animation: heartBeat 1.5s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.8));
         }
         
         @keyframes heartBeat {
@@ -440,18 +353,37 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 30px;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 
+                3px 3px 0px #000000, 
+                -3px -3px 0px #000000, 
+                3px -3px 0px #000000, 
+                -3px 3px 0px #000000,
+                2px 2px 0px #000000,
+                -2px -2px 0px #000000,
+                2px -2px 0px #000000,
+                -2px 2px 0px #000000,
+                1px 1px 0px #000000,
+                -1px -1px 0px #000000,
+                1px -1px 0px #000000,
+                -1px 1px 0px #000000,
+                4px 4px 8px rgba(0,0,0,0.9);
+            background: none;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            backdrop-filter: none;
         }
         
         .forever-text {
-            font-size: 2.5em;
+            font-size: 2.2em;
             text-align: center;
-            margin: 30px 0;
+            margin: 20px 0;
             font-style: italic;
             animation: glowPulse 2s infinite alternate;
+            font-weight: bold;
         }
         
         @keyframes glowPulse {
@@ -460,13 +392,15 @@
         }
         
         .celebration-message {
-            font-size: 1.5em;
+            font-size: 1.4em;
             text-align: center;
             max-width: 600px;
             line-height: 1.6;
-            margin: 30px 20px;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
+            margin: 20px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
         }
         
         .floating-hearts-celebration {
@@ -506,34 +440,126 @@
             bottom: 20px;
             right: 20px;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
             border: 2px solid #ff69b4;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.6);
             color: white;
             font-family: Arial, sans-serif;
             max-width: 320px;
-            resize: both;
-            overflow: auto;
             min-width: 280px;
-            min-height: 200px;
+            cursor: move;
+            touch-action: none;
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: move;
+            padding: 5px;
+            background: rgba(255, 105, 180, 0.2);
+            border-radius: 8px;
+        }
+
+        .drag-handle {
+            font-size: 1.2em;
+            color: #ff69b4;
+            cursor: move;
         }
 
         .close-btn {
-            margin-top: 10px;
             padding: 5px 10px;
             background: #ff69b4;
             border: none;
-            border-radius: 5px;
+            border-radius: 15px;
             color: white;
             cursor: pointer;
             transition: background 0.3s ease;
+            font-size: 0.9em;
         }
 
         .close-btn:hover {
             background: #ff1493;
+        }
+
+        @media (max-width: 768px) {
+            .title { font-size: 2em; }
+            .phrase { font-size: 1.2em; padding: 15px; }
+            .song-grid { grid-template-columns: 1fr; }
+            .answer-buttons { flex-direction: column; align-items: center; }
+            .container { padding: 10px; }
+            
+            .song-title { 
+                font-size: 1em; 
+                padding: 8px;
+                margin-bottom: 10px;
+            }
+            
+            .spotify-iframe { 
+                height: 152px;
+                width: 100%;
+                min-height: 152px;
+            }
+            
+            .song-item { 
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .floating-player {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                width: auto;
+                min-width: auto;
+            }
+            
+            .floating-player iframe {
+                width: 100%;
+                max-width: none;
+                height: 152px;
+            }
+            
+            .youtube-link {
+                display: block;
+                text-align: center;
+                margin: 10px auto;
+                width: fit-content;
+            }
+
+            .celebration-title {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+
+            .heart-with-letters {
+                font-size: 80px;
+            }
+
+            .letters-overlay {
+                font-size: 24px;
+                font-weight: 900;
+            }
+
+            .forever-text {
+                font-size: 1.8em;
+            }
+
+            .celebration-message {
+                font-size: 1.2em;
+                margin: 15px;
+                padding: 15px;
+            }
+
+            .giant-hearts {
+                gap: 20px;
+                margin: 20px 0;
+            }
         }
     </style>
 </head>
@@ -572,7 +598,7 @@
             </div>
             <div class="answer-buttons">
                 <button class="answer-btn" onclick="playSong('latidos')">Sí 💖</button>
-                <button class="answer-btn obvio" onclick="playSong('adan')">Obvio 💜</button>
+                <button class="answer-btn obvio" onclick="playSong('obvio')">Obvio 💜</button>
             </div>
         </div>
     </div>
@@ -597,8 +623,14 @@
         ];
 
         let currentPhraseIndex = 0;
+        let isDragging = false;
+        let currentX = 0;
+        let currentY = 0;
+        let initialX = 0;
+        let initialY = 0;
+        let xOffset = 0;
+        let yOffset = 0;
 
-        // Inicialización cuando la página carga
         document.addEventListener('DOMContentLoaded', function() {
             startHeartEffect();
             startLetterEffect();
@@ -710,7 +742,8 @@
                 <div class="floating-hearts-celebration" id="heartsRain"></div>
                 
                 <div class="celebration-title">
-                    ¡DIJO QUE SÍ! 🎉
+                    ¡Felicidades! 🎉<br>
+                    Ahora eres novia de Joel Cano 💖
                 </div>
                 
                 <div class="giant-hearts">
@@ -726,34 +759,36 @@
                 </div>
                 
                 <div class="forever-text">
-                    E & J FOREVER ✨
+                    Elizabeth & Joel FOREVER ✨
                 </div>
                 
                 <div class="celebration-message">
                     ¡Mi hermosa Elizabeth "Iris" dijo que SÍ! 💕<br>
-                    Ahora eres novia de Joel Cano 🥰<br>
+                    Ahora eres oficialmente la novia de Joel Cano 🥰<br>
                     Próximamente Elizabeth de Cano jeje 💍<br>
                     Tu músico, poeta y programador que te ama intensamente ✨<br>
                     Te amo con todo mi corazón, mi luna bella 💖<br>
                     ¡Esta es solo el comienzo de nuestra historia de amor! 💕
                 </div>
                 
-                <div class="floating-player">
-                    <div style="margin-bottom: 10px; font-weight: bold;">💖 Nuestra canción de amor:</div>
+                <div class="floating-player" id="playerCelebration">
+                    <div class="player-header">
+                        <span class="drag-handle">⋮⋮ 💖 Nuestra canción de amor</span>
+                        <button onclick="document.getElementById('playerCelebration').remove()" class="close-btn">✕</button>
+                    </div>
                     <iframe src="https://open.spotify.com/embed/track/6rov2Cu3KFynohtdBOKQsW?utm_source=generator" 
-                            width="280" height="152" frameBorder="0" 
+                            width="100%" height="152" frameBorder="0" 
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                             loading="lazy"></iframe>
                 </div>
             `;
             
-            // Reiniciar efectos para la página de celebración
             createHeartRain();
             createMusicNotes();
+            initDragFunctionality();
         }
 
         function createAdanPlayer() {
-            // Remover reproductor existente si lo hay
             const existingPlayer = document.getElementById('adanPlayer');
             if (existingPlayer) {
                 existingPlayer.remove();
@@ -764,20 +799,20 @@
             playerDiv.className = 'floating-player';
             
             playerDiv.innerHTML = `
-                <div style="margin-bottom: 10px; font-weight: bold;">💕 Para mi Elizabeth:</div>
+                <div class="player-header">
+                    <span class="drag-handle">⋮⋮ 💕 Para mi Elizabeth</span>
+                    <button onclick="document.getElementById('adanPlayer').remove()" class="close-btn">✕</button>
+                </div>
                 <iframe width="100%" height="200" 
                         src="https://www.youtube.com/embed/KCXdzuxFbqM?autoplay=1" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen
-                        style="max-width: 280px; border-radius: 10px;"></iframe>
-                <button onclick="document.getElementById('adanPlayer').remove()" 
-                        class="close-btn">
-                    ❌ Cerrar
-                </button>
+                        style="border-radius: 10px;"></iframe>
             `;
             
             document.body.appendChild(playerDiv);
+            initDragFunctionality();
         }
 
         function playSong(id) {
@@ -785,13 +820,11 @@
             
             setTimeout(() => {
                 if (id === 'latidos') {
-                    // ¡DIJO QUE SÍ! - Página especial completa
                     createCelebrationPage();
-                    alert("💖 ¡FELICIDADES! Elizabeth dijo que SÍ! ¡Ahora son novios! 💖");
+                    alert("💖 ¡Felicidades! Ahora eres novia de Joel Cano 💖");
                 } else {
-                    // Si dice "Obvio" también es SÍ, pero con Adán Zapata
-                    createAdanPlayer();
-                    alert("💜 ¡OBVIO que sí! Ahora eres la novia de Joel Cano 💜");
+                    createCelebrationPage();
+                    alert("💜 ¡Felicidades! Ahora eres novia de Joel Cano 💜");
                 }
             }, 1000);
         }
@@ -829,7 +862,6 @@
                 letter.style.animationDuration = (Math.random() * 3 + 5) + 's';
                 letter.style.fontSize = (Math.random() * 15 + 35) + 'px';
                 
-                // Color especial para letras del nombre
                 if (['E', 'L', 'I', 'Z', 'A', 'B', 'T', 'H'].includes(letter.innerHTML)) {
                     letter.style.color = '#ffb3ff';
                 } else if (['I', 'R', 'S'].includes(letter.innerHTML)) {
@@ -846,7 +878,6 @@
             }, 800);
         }
 
-        // Funciones para la página de celebración
         function createHeartRain() {
             const container = document.getElementById('heartsRain');
             if (!container) return;
@@ -891,6 +922,92 @@
                 }, 4000);
             }, 2000);
         }
+
+        // Funcionalidad de arrastre para el reproductor
+        function initDragFunctionality() {
+            const players = document.querySelectorAll('.floating-player');
+            
+            players.forEach(player => {
+                const header = player.querySelector('.player-header');
+                if (!header) return;
+
+                header.addEventListener('mousedown', dragStart);
+                header.addEventListener('touchstart', dragStart);
+            });
+        }
+
+        function dragStart(e) {
+            const player = e.target.closest('.floating-player');
+            if (!player) return;
+
+            if (e.type === "touchstart") {
+                initialX = e.touches[0].clientX - xOffset;
+                initialY = e.touches[0].clientY - yOffset;
+            } else {
+                initialX = e.clientX - xOffset;
+                initialY = e.clientY - yOffset;
+            }
+
+            if (e.target === e.currentTarget || e.target.classList.contains('drag-handle')) {
+                isDragging = true;
+                player.style.cursor = 'grabbing';
+                
+                document.addEventListener('mousemove', drag);
+                document.addEventListener('mouseup', dragEnd);
+                document.addEventListener('touchmove', drag);
+                document.addEventListener('touchend', dragEnd);
+            }
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                
+                if (e.type === "touchmove") {
+                    currentX = e.touches[0].clientX - initialX;
+                    currentY = e.touches[0].clientY - initialY;
+                } else {
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+                }
+
+                xOffset = currentX;
+                yOffset = currentY;
+
+                const player = document.querySelector('.floating-player[style*="cursor: grabbing"]');
+                if (player) {
+                    // Limitar el movimiento dentro de la ventana
+                    const maxX = window.innerWidth - player.offsetWidth;
+                    const maxY = window.innerHeight - player.offsetHeight;
+                    
+                    const boundedX = Math.max(0, Math.min(currentX, maxX));
+                    const boundedY = Math.max(0, Math.min(currentY, maxY));
+                    
+                    player.style.transform = `translate(${boundedX}px, ${boundedY}px)`;
+                }
+            }
+        }
+
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+            isDragging = false;
+            
+            const player = document.querySelector('.floating-player[style*="cursor: grabbing"]');
+            if (player) {
+                player.style.cursor = 'move';
+            }
+            
+            document.removeEventListener('mousemove', drag);
+            document.removeEventListener('mouseup', dragEnd);
+            document.removeEventListener('touchmove', drag);
+            document.removeEventListener('touchend', dragEnd);
+        }
+
+        // Inicializar arrastre al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initDragFunctionality, 1000);
+        });
     </script>
 </body>
 </html>
