@@ -98,6 +98,10 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.5s ease;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .phrase.show {
@@ -282,6 +286,162 @@
             .phrase { font-size: 1.2em; padding: 15px; }
             .song-grid { grid-template-columns: 1fr; }
             .answer-buttons { flex-direction: column; align-items: center; }
+            .container { padding: 10px; }
+        }
+
+        /* Estilos para la página de celebración */
+        .celebration-body {
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #8a2be2, #4b0082);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .celebration-title {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .giant-hearts {
+            display: flex;
+            gap: 50px;
+            margin: 40px 0;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .heart-with-letters {
+            position: relative;
+            font-size: 120px;
+            animation: heartBeat 1.5s infinite;
+        }
+        
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .letters-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .forever-text {
+            font-size: 2.5em;
+            text-align: center;
+            margin: 30px 0;
+            font-style: italic;
+            animation: glowPulse 2s infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            from { text-shadow: 0 0 20px #ff69b4; }
+            to { text-shadow: 0 0 40px #ff69b4, 0 0 60px #ff1493; }
+        }
+        
+        .celebration-message {
+            font-size: 1.5em;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.6;
+            margin: 30px 20px;
+        }
+        
+        .floating-hearts-celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .heart-rain {
+            position: absolute;
+            font-size: 40px;
+            animation: rainFall 3s linear infinite;
+        }
+        
+        @keyframes rainFall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .music-note {
+            position: fixed;
+            font-size: 30px;
+            animation: musicFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes musicFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .floating-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #ff69b4;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
+            color: white;
+            font-family: Arial, sans-serif;
+            max-width: 320px;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #ff69b4;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #ff1493;
         }
     </style>
 </head>
@@ -307,7 +467,7 @@
                 💜 Esta canción es muy especial para mí, porque cada vez que la escucho pienso en ti y en lo mucho que significas en mi vida, Elizabeth. Eres la melodía más hermosa que ha llegado a mi corazón, mi Iris 💜
             </div>
             <div class="song-item">
-                <div class="song-title">Ribaste mi corazón - Adán Zapata</div>
+                <div class="song-title">Robaste mi corazón - Adán Zapata</div>
                 <a href="https://www.youtube.com/watch?v=KCXdzuxFbqM" target="_blank" class="youtube-link">
                     💕 Escuchar en YouTube
                 </a>
@@ -346,6 +506,7 @@
 
         let currentPhraseIndex = 0;
 
+        // Inicialización cuando la página carga
         document.addEventListener('DOMContentLoaded', function() {
             startHeartEffect();
             startLetterEffect();
@@ -451,63 +612,93 @@
             }
         }
 
-        function playSong(id) {
-            explorarCorazones();
+        function createCelebrationPage() {
+            document.body.className = 'celebration-body';
+            document.body.innerHTML = `
+                <div class="floating-hearts-celebration" id="heartsRain"></div>
+                
+                <div class="celebration-title">
+                    ¡DIJO QUE SÍ! 🎉
+                </div>
+                
+                <div class="giant-hearts">
+                    <div class="heart-with-letters">
+                        💖
+                        <div class="letters-overlay">J & E</div>
+                    </div>
+                    <div style="font-size: 60px; animation: pulse 1s infinite;">+</div>
+                    <div class="heart-with-letters">
+                        💕
+                        <div class="letters-overlay">I & J</div>
+                    </div>
+                </div>
+                
+                <div class="forever-text">
+                    E & J FOREVER ✨
+                </div>
+                
+                <div class="celebration-message">
+                    ¡Mi hermosa Elizabeth "Iris" dijo que SÍ! 💕<br>
+                    Ahora somos novios oficialmente 🥰<br>
+                    Te amo con todo mi corazón, mi luna bella ✨<br>
+                    ¡Esta es solo el comienzo de nuestra historia de amor! 💖
+                </div>
+                
+                <div class="floating-player">
+                    <div style="margin-bottom: 10px; font-weight: bold;">💖 Nuestra canción de amor:</div>
+                    <iframe src="https://open.spotify.com/embed/track/6rov2Cu3KFynohtdBOKQsW?utm_source=generator" 
+                            width="280" height="152" frameBorder="0" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                            loading="lazy"></iframe>
+                </div>
+            `;
             
-            const existingPlayer = document.getElementById('floatingPlayer');
+            // Reiniciar efectos para la página de celebración
+            createHeartRain();
+            createMusicNotes();
+        }
+
+        function createAdanPlayer() {
+            // Remover reproductor existente si lo hay
+            const existingPlayer = document.getElementById('adanPlayer');
             if (existingPlayer) {
                 existingPlayer.remove();
             }
             
             const playerDiv = document.createElement('div');
-            playerDiv.id = 'floatingPlayer';
-            playerDiv.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 1000;
-                background: rgba(0, 0, 0, 0.9);
-                padding: 20px;
-                border-radius: 15px;
-                backdrop-filter: blur(10px);
-                border: 2px solid #ff69b4;
-                box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
-                color: white;
-                font-family: Arial, sans-serif;
+            playerDiv.id = 'adanPlayer';
+            playerDiv.className = 'floating-player';
+            
+            playerDiv.innerHTML = `
+                <div style="margin-bottom: 10px; font-weight: bold;">💕 Para mi Elizabeth:</div>
+                <iframe width="280" height="200" 
+                        src="https://www.youtube.com/embed/KCXdzuxFbqM?autoplay=1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+                <button onclick="document.getElementById('adanPlayer').remove()" 
+                        class="close-btn">
+                    ❌ Cerrar
+                </button>
             `;
             
-            if (id === 'latidos') {
-                playerDiv.innerHTML = `
-                    <div style="margin-bottom: 10px; font-weight: bold;">🎵 Para mi hermosa Iris:</div>
-                    <iframe src="https://open.spotify.com/embed/track/6rov2Cu3KFynohtdBOKQsW?utm_source=generator" 
-                            width="300" height="152" frameBorder="0" 
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                            loading="lazy"></iframe>
-                    <button onclick="document.getElementById('floatingPlayer').remove()" 
-                            style="margin-top: 10px; padding: 5px 10px; background: #ff69b4; border: none; border-radius: 5px; color: white; cursor: pointer;">
-                        ❌ Cerrar
-                    </button>
-                `;
-            } else {
-                playerDiv.innerHTML = `
-                    <div style="margin-bottom: 10px; font-weight: bold;">💕 Para mi Elizabeth:</div>
-                    <iframe width="300" height="200" 
-                            src="https://www.youtube.com/embed/KCXdzuxFbqM?autoplay=1" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen></iframe>
-                    <button onclick="document.getElementById('floatingPlayer').remove()" 
-                            style="margin-top: 10px; padding: 5px 10px; background: #ff69b4; border: none; border-radius: 5px; color: white; cursor: pointer;">
-                        ❌ Cerrar
-                    </button>
-                `;
-            }
-            
             document.body.appendChild(playerDiv);
+        }
+
+        function playSong(id) {
+            explorarCorazones();
             
             setTimeout(() => {
-                alert("💜 Gracias por decir que sí 💜");
-            }, 500);
+                if (id === 'latidos') {
+                    // ¡DIJO QUE SÍ! - Página especial completa
+                    createCelebrationPage();
+                    alert("💖 ¡FELICIDADES! Elizabeth dijo que SÍ! ¡Ahora son novios! 💖");
+                } else {
+                    // Si dice "Obvio" también es SÍ, pero con Adán Zapata
+                    createAdanPlayer();
+                    alert("💜 ¡OBVIO que sí! Elizabeth es tu novia 💜");
+                }
+            }, 1000);
         }
 
         function startHeartEffect() {
@@ -558,6 +749,52 @@
                     }
                 }, 8000);
             }, 800);
+        }
+
+        // Funciones para la página de celebración
+        function createHeartRain() {
+            const container = document.getElementById('heartsRain');
+            if (!container) return;
+            
+            const hearts = ['💖', '💕', '💗', '💓', '💝', '❤️', '🌹', '✨'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-rain';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 30) + 'px';
+                
+                container.appendChild(heart);
+                
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        heart.remove();
+                    }
+                }, 4000);
+            }, 300);
+        }
+
+        function createMusicNotes() {
+            const notes = ['🎵', '🎶', '🎼', '🎤'];
+            
+            setInterval(() => {
+                const note = document.createElement('div');
+                note.className = 'music-note';
+                note.innerHTML = notes[Math.floor(Math.random() * notes.length)];
+                note.style.left = Math.random() * 90 + '%';
+                note.style.top = Math.random() * 90 + '%';
+                note.style.color = ['#ff69b4', '#ffd700', '#ff1493', '#8a2be2'][Math.floor(Math.random() * 4)];
+                
+                document.body.appendChild(note);
+                
+                setTimeout(() => {
+                    if (note.parentNode) {
+                        note.remove();
+                    }
+                }, 4000);
+            }, 2000);
         }
     </script>
 </body>
