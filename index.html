@@ -269,9 +269,67 @@
 
         .music-embed iframe {
             width: 100%;
-            height: 315px;
+            height: 352px;
             border: none;
             border-radius: 15px;
+        }
+
+        .music-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+        .music-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726, #42a5f5);
+            background-size: 300% 300%;
+            animation: gradientFlow 3s ease infinite;
+            border: none;
+            color: white;
+            padding: clamp(12px, 2vw, 15px) clamp(20px, 3vw, 30px);
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(255,107,107,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .music-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255,107,107,0.4);
+        }
+
+        .music-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .music-btn:hover:before {
+            left: 100%;
+        }
+
+        .spotify-btn {
+            background: linear-gradient(45deg, #1db954, #1ed760, #1db954);
+        }
+
+        .apple-btn {
+            background: linear-gradient(45deg, #fc3c44, #ff6b6b, #fc3c44);
+        }
+
+        .youtube-btn {
+            background: linear-gradient(45deg, #ff0000, #ff4444, #ff0000);
         }
 
         .music-info {
@@ -719,22 +777,47 @@
                 <em>Esta canción dice exactamente lo que siento por ti, mi amor</em>
             </p>
             
+            <!-- Spotify Embed -->
             <div class="music-embed">
-                <iframe src="https://www.youtube.com/embed/PdUC8fFqqBM" 
-                        title="Los De La Noria - Voy A Quererte Tanto" 
-                        allowfullscreen>
+                <iframe src="https://open.spotify.com/embed/track/22Az5CRb660d00gx2jhjg9?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="352" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy"
+                        style="border-radius: 15px;">
                 </iframe>
+            </div>
+            
+            <!-- Botones alternativos -->
+            <div class="music-buttons" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 25px 0;">
+                <button onclick="window.open('https://open.spotify.com/track/22Az5CRb660d00gx2jhjg9', '_blank')" class="music-btn spotify-btn">
+                    🎵 Escuchar en Spotify 🎵
+                </button>
+                <button onclick="window.open('https://music.apple.com/ve/music-video/voy-a-quererte-tanto/1445294446', '_blank')" class="music-btn apple-btn">
+                    🍎 Ver en Apple Music 🍎
+                </button>
+                <button onclick="window.open('https://www.youtube.com/results?search_query=Los+de+la+Noria+Voy+a+Quererte+Tanto+oficial', '_blank')" class="music-btn youtube-btn">
+                    ▶️ Buscar en YouTube ▶️
+                </button>
             </div>
             
             <div class="music-info">
                 <p class="lyrics-preview">
-                    <strong>"Voy a quererte tanto, tanto que te darás cuenta<br>
+                    <strong>💕 Los versos que mi corazón canta para ti:</strong><br><br>
+                    <em>"Voy a quererte tanto, tanto que te darás cuenta<br>
                     Que en la vida ya nada te va a hacer falta<br>
                     Te voy a querer bonito, bonito que vas a sentir<br>
-                    Que te están queriendo por primera vez..."</strong>
+                    Que te están queriendo por primera vez..."</em>
                 </p>
-                <p style="margin-top: 15px; font-size: 0.95rem; opacity: 0.8;">
-                    💫 Cada verso de esta canción es lo que mi corazón quiere decirte, Elizabeth 💫
+                <p style="margin-top: 20px; font-size: 0.95rem; opacity: 0.9; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px;">
+                    💫 Cada verso de esta canción es lo que mi corazón quiere decirte, Elizabeth. 
+                    Es exactamente como me siento: quiero quererte tanto que nunca te falte nada, 
+                    quererte bonito como mereces 💫
+                </p>
+                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
+                    🎶 Si no se reproduce aquí, usa cualquiera de los botones para escucharla 🎶
                 </p>
             </div>
         </div>
