@@ -300,6 +300,21 @@
         .poem-line:nth-child(4) { animation-delay: 0.9s; }
         .poem-line:nth-child(5) { animation-delay: 1.2s; }
         .poem-line:nth-child(6) { animation-delay: 1.5s; }
+        .poem-line:nth-child(7) { animation-delay: 1.8s; }
+        .poem-line:nth-child(8) { animation-delay: 2.1s; }
+        .poem-line:nth-child(9) { animation-delay: 2.4s; }
+        .poem-line:nth-child(10) { animation-delay: 2.7s; }
+        .poem-line:nth-child(11) { animation-delay: 3.0s; }
+        .poem-line:nth-child(12) { animation-delay: 3.3s; }
+        .poem-line:nth-child(13) { animation-delay: 3.6s; }
+        .poem-line:nth-child(14) { animation-delay: 3.9s; }
+        .poem-line:nth-child(15) { animation-delay: 4.2s; }
+        .poem-line:nth-child(16) { animation-delay: 4.5s; }
+        .poem-line:nth-child(17) { animation-delay: 4.8s; }
+        .poem-line:nth-child(18) { animation-delay: 5.1s; }
+        .poem-line:nth-child(19) { animation-delay: 5.4s; }
+        .poem-line:nth-child(20) { animation-delay: 5.7s; }
+        .poem-line:nth-child(21) { animation-delay: 6.0s; }
 
         .music-section {
             background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
@@ -541,17 +556,17 @@
     <div class="floating-hearts" id="floatingHearts"></div>
 
     <div class="container">
-        <!-- Pantalla de espera (antes del 23 de agosto) -->
+        <!-- Pantalla de espera (antes de la fecha objetivo) -->
         <div class="waiting-screen" id="waitingScreen">
             <div class="closed-heart">💖</div>
-            <h1 class="waiting-title">Un Regalo Especial Te Espera</h1>
+            <h1 class="waiting-title">Mi Luna Hermosa</h1>
             <p class="waiting-message">
-                Este regalo está guardado con mucho amor 💕<br>
-                Se abrirá en nuestra fecha especial:<br>
-                <strong>23 de Agosto a las 12:00 AM</strong>
+                Mi querida Elizabeth 🌙💕<br>
+                Tu Sol tiene un regalo especial...<br>
+                <strong>En unos segundos se abrirá para ti, mi Iris ✨</strong>
             </p>
             <div class="countdown">
-                <div>⏰ Tiempo restante para nuestro primer mes ⏰</div>
+                <div>🌙☀️ Tu sol tiene una sorpresa para su luna 🌙☀️</div>
                 <div class="countdown-numbers">
                     <div class="countdown-item">
                         <span class="countdown-number" id="days">00</span>
@@ -573,23 +588,41 @@
             </div>
         </div>
 
-        <!-- Pantalla de regalo (después del 23 de agosto) -->
+        <!-- Pantalla de regalo (después de la fecha objetivo) -->
         <div class="gift-screen" id="giftScreen">
             <div class="open-heart">💝</div>
             <h1 class="anniversary-title">¡Feliz Primer Mes de Novios!</h1>
             
             <div class="poem-container">
-                <h2 class="poem-title">Para Ti, Mi Amor 💕</h2>
+                <h2 class="poem-title">Para Ti, Mi Luna Elizabeth 🌙💕</h2>
+                <div class="poem-line">Elizabeth, mi luna hermosa que ilumina mi existir,</div>
+                <div class="poem-line">Yo soy tu sol ardiente que no puede resistir</div>
+                <div class="poem-line">La magia de tu sonrisa, la dulzura de tu ser,</div>
+                <div class="poem-line">Mi iris preciosa, contigo quiero amanecer.</div>
+                <div class="poem-line"></div>
                 <div class="poem-line">Un mes ha pasado desde que llegaste a mi vida,</div>
-                <div class="poem-line">Como una estrella brillante que todo lo ilumina.</div>
-                <div class="poem-line">Aunque estemos lejos, tu amor me acompaña,</div>
-                <div class="poem-line">Y cada día contigo es una nueva mañana.</div>
+                <div class="poem-line">Como una luna llena que mi alma cautiva.</div>
+                <div class="poem-line">Aunque estemos lejos, nuestro amor trasciende,</div>
+                <div class="poem-line">Como el sol y la luna, nuestra danza se enciende.</div>
+                <div class="poem-line"></div>
+                <div class="poem-line">Tú eres mi luna que gobierna mis mareas,</div>
+                <div class="poem-line">Yo soy tu sol que cumple todas tus deseas.</div>
+                <div class="poem-line">En el cielo del amor, somos complemento perfecto,</div>
+                <div class="poem-line">Mi Elizabeth querida, eres mi universo completo.</div>
+                <div class="poem-line"></div>
+                <div class="poem-line">Cuando la noche llegue y tu luna brille,</div>
+                <div class="poem-line">Recordarás que mi sol por ti siempre vive.</div>
+                <div class="poem-line">Y cuando despierte con la primera luz del alba,</div>
+                <div class="poem-line">Será pensando en ti, que mi corazón se calma.</div>
+                <div class="poem-line"></div>
                 <div class="poem-line">Este es nuestro primer mes de muchos por venir,</div>
-                <div class="poem-line">Porque contigo, mi amor, quiero envejecer y vivir. ✨</div>
+                <div class="poem-line">Mi luna, mi iris, mi razón de existir.</div>
+                <div class="poem-line">Porque eres tú, Elizabeth, mi amor verdadero,</div>
+                <div class="poem-line">Mi compañera eterna, mi destino entero. ✨🌙☀️</div>
             </div>
 
             <div class="music-section">
-                <h2 class="music-title">🎵 Nuestra Canción de Amor 🎵</h2>
+                <h2 class="music-title">🎵 La Canción de Nuestro Amor Sol y Luna 🌙☀️</h2>
                 <p style="margin-bottom: 20px;">"Te amaré" - Miguel Bosé</p>
                 
                 <div class="music-embed">
@@ -623,20 +656,25 @@
                 </button>
                 <div class="secret-message" id="secretMessage">
                     <h4 style="font-family: 'Dancing Script', cursive; font-size: 1.5rem; margin-bottom: 15px; color: var(--text-accent);">
-                        Mi Carta Secreta Para Ti 💕
+                        Carta de tu Sol para su Luna 🌙☀️
                     </h4>
                     <p style="line-height: 1.6; color: var(--text-primary);">
-                        Mi amor, este primer mes contigo ha sido mágico. Cada conversación, cada risa, 
-                        cada "buenos días" y "buenas noches" han llenado mi corazón de una felicidad 
-                        que no sabía que existía. 
+                        Mi querida Elizabeth, mi luna hermosa, mi iris perfecta,
                         <br><br>
-                        Sé que estamos lejos físicamente, pero nunca me he sentido tan cerca de alguien 
-                        como me siento de ti. Tu amor ha llegado a mi vida para quedarse para siempre.
+                        Este primer mes contigo ha sido como un eclipse mágico donde nuestras almas se encontraron. 
+                        Cada conversación es como un amanecer que llena mi día de luz, cada "te amo" es como 
+                        la caricia de la luna en una noche estrellada.
                         <br><br>
-                        Gracias por este mes increíble. Lo mejor está por venir, mi amor. 
-                        Te amo infinitamente 💞
+                        Sé que estamos lejos físicamente, pero somos como el sol y la luna: aunque no siempre nos 
+                        vemos al mismo tiempo, siempre estamos conectados, siempre danzamos juntos en el mismo cielo. 
+                        Tu amor ha llegado a mi vida para quedarse para siempre.
                         <br><br>
-                        <em style="color: var(--text-accent);">Con todo mi amor,<br>Tu novio que te adora 💖</em>
+                        Elizabeth, mi luna hermosa, eres la luz que guía mis noches y la razón por la que mi sol 
+                        sale cada mañana. Gracias por este mes increíble, por ser mi complemento perfecto.
+                        <br><br>
+                        Te amo infinitamente, mi iris, mi luna, mi todo 💞
+                        <br><br>
+                        <em style="color: var(--text-accent);">Con todo el amor de tu Sol,<br>Tu novio que te adora eternamente 🌙☀️💖</em>
                     </p>
                 </div>
             </div>
@@ -782,9 +820,6 @@
                 document.getElementById('themeText').textContent = 'Día';
             }
         }
-
-        // PARA DESARROLLO/TESTING: Descomenta la línea siguiente para ver el regalo inmediatamente
-        // targetDate = new Date().getTime() - 1000;
 
         // Inicializar cuando carga la página
         window.addEventListener('load', () => {
