@@ -3,845 +3,543 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primer Encuentro con Mi Luna</title>
+    <title>Para mi Luna 💕</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        :root {
-            --bg-primary: linear-gradient(135deg, #ffeef8, #fff0f5);
-            --bg-secondary: #ffffff;
-            --text-primary: #2d1b2e;
-            --text-secondary: #5a4a5c;
-            --accent-color: #d63384;
-            --accent-light: #f8d7da;
-            --border-color: #e9d3e9;
-            --shadow: rgba(214, 51, 132, 0.15);
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: linear-gradient(135deg, #1a0d1a, #2d1b2e);
-            --bg-secondary: #3d2a3f;
-            --text-primary: #f8d7da;
-            --text-secondary: #d4b3d6;
-            --accent-color: #ff69b4;
-            --accent-light: #4a2c4a;
-            --border-color: #5a4a5c;
-            --shadow: rgba(255, 105, 180, 0.2);
-        }
-
+        
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
         }
-
-        /* PANTALLA DE LOGIN */
-        .login-screen {
-            position: fixed;
+        
+        .envelope-container {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            width: 550px;
+            height: 380px;
+            border: 4px solid #2d3436;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .envelope-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Línea horizontal superior */
+        .top-line {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            right: 30px;
+            height: 4px;
+            background: linear-gradient(90deg, #2d3436, #636e72, #2d3436);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Líneas diagonales que se cruzan */
+        .diagonal-line-1 {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: calc(100% - 60px);
+            height: calc(100% - 60px);
+            overflow: hidden;
+        }
+        
+        .diagonal-line-1::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: var(--bg-primary);
+            height: 4px;
+            background: linear-gradient(90deg, #2d3436, #636e72);
+            transform-origin: left;
+            transform: rotate(22deg);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .diagonal-line-1::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #636e72, #2d3436);
+            transform-origin: right;
+            transform: rotate(-22deg);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Corazón rojo vibrante */
+        .heart-container {
+            position: relative;
+            margin: 25px 0;
+            z-index: 10;
+            font-size: 120px;
+            filter: drop-shadow(0 8px 16px rgba(220, 20, 60, 0.4));
+            animation: heartBeat 2s ease-in-out infinite;
+        }
+        
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.05); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.02); }
+        }
+        
+        .heart-emoji {
+            color: #dc143c;
+            text-shadow: 
+                0 0 20px rgba(220, 20, 60, 0.6),
+                0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .heart-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 10px rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+        }
+        
+        /* Sección de contraseña mejorada */
+        .password-section {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .password-input-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .password-label {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border: 3px solid #2d3436;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+            border-radius: 8px;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .password-input {
+            width: 350px;
+            height: 50px;
+            border: 3px solid #2d3436;
+            padding: 0 60px 0 20px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            margin-bottom: 20px;
+            outline: none;
+            border-radius: 25px;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.1),
+                inset 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .show-password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #636e72;
+            transition: all 0.3s ease;
+            padding: 5px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease;
         }
-
-        .login-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
+        
+        .show-password-toggle:hover {
+            background: rgba(220, 20, 60, 0.1);
+            color: #dc143c;
+            transform: translateY(-50%) scale(1.1);
         }
-
-        .login-container {
-            background: var(--bg-secondary);
-            padding: 50px;
-            border-radius: 30px;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 15px 40px var(--shadow);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .login-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .login-title {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-
-        .login-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 15px 20px;
-            font-size: 1.1rem;
-            border: 2px solid var(--border-color);
-            border-radius: 25px;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            text-align: center;
-            font-family: 'Georgia', serif;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-
+        
         .password-input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 20px var(--shadow);
-            transform: scale(1.02);
+            border-color: #dc143c;
+            box-shadow: 
+                0 6px 12px rgba(220, 20, 60, 0.2),
+                0 0 0 3px rgba(220, 20, 60, 0.1),
+                inset 0 2px 4px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
         }
-
-        .login-button {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px var(--shadow);
-            font-family: 'Georgia', serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        .login-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px var(--shadow);
-        }
-
-        .login-hearts {
-            font-size: 2rem;
-            margin: 20px 0;
-            animation: heartbeat 1.5s ease-in-out infinite;
-            position: relative;
-            z-index: 1;
-        }
-
-        .error-message {
-            color: #e74c3c;
-            margin-top: 15px;
+        
+        .password-input::placeholder {
+            color: #636e72;
             font-style: italic;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            position: relative;
-            z-index: 1;
         }
-
-        .error-message.show {
-            opacity: 1;
-        }
-
-        .login-hint {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 20px;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* CONTENIDO PRINCIPAL */
-        .main-content {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease;
-        }
-
-        .main-content.visible {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
+        
+        .submit-button {
+            width: 160px;
             height: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px var(--shadow);
-            transition: transform 0.2s ease;
-            z-index: 1000;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin: 40px 0;
-            text-shadow: 2px 2px 4px var(--shadow);
-            font-style: italic;
-            animation: titleGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes titleGlow {
-            from { text-shadow: 2px 2px 4px var(--shadow); }
-            to { text-shadow: 2px 2px 20px var(--accent-color); }
-        }
-
-        .main-image {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .main-image img {
-            max-width: 400px;
-            width: 100%;
-            border-radius: 20px;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 8px 25px var(--shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .main-image img:hover {
-            transform: scale(1.05) rotate(1deg);
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            background: var(--accent-color);
-            color: white;
+            background: linear-gradient(145deg, #dc143c, #b91c1c);
             border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
             cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px var(--shadow);
-        }
-
-        .nav-btn.active {
-            background: var(--accent-light);
-            color: var(--text-primary);
-            transform: scale(1.1);
-        }
-
-        .section {
-            display: none;
-            background: var(--bg-secondary);
-            margin: 30px 0;
-            padding: 35px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             border-radius: 25px;
-            border: 2px solid var(--border-color);
-            box-shadow: 0 10px 30px var(--shadow);
-            transition: all 0.5s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .section.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .section h2 {
-            color: var(--accent-color);
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            text-align: center;
-            font-style: italic;
-        }
-
-        .section p {
-            font-size: 1.15rem;
-            text-align: justify;
-            margin-bottom: 18px;
-            color: var(--text-secondary);
-        }
-
-        .highlight {
-            background: var(--accent-light);
-            padding: 25px;
-            border-radius: 20px;
-            margin: 25px 0;
-            border-left: 5px solid var(--accent-color);
-            font-style: italic;
-            text-align: center;
-            color: var(--accent-color);
-            font-size: 1.2rem;
+            box-shadow: 
+                0 6px 12px rgba(220, 20, 60, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-
-        .highlight::before {
+        
+        .submit-button::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shine 3s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
-
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+        
+        .submit-button:hover {
+            background: linear-gradient(145deg, #b91c1c, #991b1b);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 10px 20px rgba(220, 20, 60, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
-
-        .romantic-quote {
-            text-align: center;
-            font-size: 1.6rem;
-            color: var(--accent-color);
-            font-style: italic;
-            margin: 40px 0;
-            padding: 35px;
-            background: var(--bg-secondary);
-            border-radius: 25px;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 10px 30px var(--shadow);
+        
+        .submit-button:hover::before {
+            left: 100%;
         }
-
-        .heart {
-            color: var(--accent-color);
-            animation: heartbeat 1.5s ease-in-out infinite;
-            display: inline-block;
-            font-size: 1.2em;
+        
+        .submit-button:active {
+            transform: translateY(-1px);
+            box-shadow: 
+                0 4px 8px rgba(220, 20, 60, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-
-        .emote {
-            font-size: 1.3em;
-            margin: 0 5px;
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .song-section {
-            background: linear-gradient(135deg, var(--accent-light), var(--bg-secondary));
-            border: 3px solid var(--accent-color);
-            border-radius: 25px;
-            padding: 30px;
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .song-button {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin: 15px 10px;
+        
+        .error-message {
+            margin-top: 15px;
+            color: #dc143c;
+            font-size: 15px;
+            font-weight: 600;
+            opacity: 0;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .song-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
-
-        .footer {
-            text-align: center;
-            margin: 50px 0;
-            font-style: italic;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .section-nav {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-            gap: 10px;
-        }
-
-        .section-nav button {
-            background: var(--accent-color);
-            color: white;
-            border: none;
+            background: rgba(220, 20, 60, 0.1);
             padding: 10px 20px;
             border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            flex: 1;
-            max-width: 150px;
+            border: 2px solid rgba(220, 20, 60, 0.3);
         }
-
-        .section-nav button:hover {
-            transform: scale(1.05);
+        
+        .error-message.show {
+            opacity: 1;
+            transform: translateY(-5px);
         }
-
-        .section-nav button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .floating-hearts {
+        
+        /* Modal de la carta mejorado */
+        .letter-content {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            overflow-y: auto;
         }
-
-        @media (max-width: 768px) {
-            .container { padding: 15px; }
-            .login-container { padding: 30px 20px; }
-            .login-title { font-size: 2rem; }
-            h1 { font-size: 2.2rem; }
-            .section { padding: 25px; }
-            .main-image img { max-width: 300px; }
-            .navigation { gap: 10px; }
-            .nav-btn { padding: 10px 15px; font-size: 0.8rem; }
+        
+        .letter-paper {
+            max-width: 650px;
+            margin: 40px auto;
+            background: linear-gradient(145deg, #fefefe, #f8f9fa);
+            padding: 50px;
+            border-radius: 15px;
+            border: 3px solid #dc143c;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            animation: letterSlideIn 0.6s ease-out;
+        }
+        
+        @keyframes letterSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .letter-title {
+            font-size: 32px;
+            color: #dc143c;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: 700;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 0 2px 4px rgba(220, 20, 60, 0.2);
+        }
+        
+        .letter-message {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #2d3436;
+            text-align: justify;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            font-size: 20px;
+            color: #dc143c;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+        
+        .close-btn {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(145deg, #dc143c, #b91c1c);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 101;
+            box-shadow: 0 6px 12px rgba(220, 20, 60, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: linear-gradient(145deg, #b91c1c, #991b1b);
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 8px 16px rgba(220, 20, 60, 0.5);
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .envelope-container {
+                width: 90%;
+                height: 350px;
+            }
+            
+            .password-input {
+                width: 280px;
+                height: 45px;
+            }
+            
+            .submit-button {
+                width: 140px;
+                height: 45px;
+            }
+            
+            .heart-container {
+                font-size: 90px;
+            }
+            
+            .heart-text {
+                font-size: 18px;
+            }
+            
+            .letter-paper {
+                margin: 20px;
+                padding: 35px 25px;
+            }
+            
+            .letter-title {
+                font-size: 26px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- PANTALLA DE LOGIN -->
-    <div class="login-screen" id="loginScreen">
-        <div class="login-container">
-            <h1 class="login-title">🌙 Para Mi Luna 💕</h1>
-            <p class="login-subtitle">Elizabeth, ingresa la clave para ver tu sorpresa romántica ✨</p>
-            
-            <div class="login-hearts">☀️💕🌙</div>
-            
-            <input 
-                type="password" 
-                id="passwordInput" 
-                class="password-input" 
-                placeholder="Ingresa la contraseña..."
-                autocomplete="off"
-            >
-            
-            <button class="login-button" onclick="checkPassword()">
-                Entrar a Nuestra Historia 💖
-            </button>
-            
-            <div class="error-message" id="errorMessage">
-                ¡Ups! Esa no es la contraseña correcta, mi luna 🌙💔
-            </div>
-            
-            <div class="login-hint">
-                💡 Pista: Nuestra fecha especial + nuestras iniciales
-            </div>
-        </div>
-    </div>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <div class="main-content" id="mainContent">
-        <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
-        <div class="floating-hearts" id="floating-hearts"></div>
-
-        <div class="container">
-            <h1>Mi Primer Encuentro con Mi Luna <span class="heart">💕</span></h1>
-            
-            <div class="main-image">
-                <img src="cine_con_mi_luna.jpg" alt="Mi luna y yo en el cine" />
-            </div>
-
-            <div class="navigation">
-                <button class="nav-btn" onclick="showSection(0)">🌅 Inicio</button>
-                <button class="nav-btn" onclick="showSection(1)">✨ Encuentro</button>
-                <button class="nav-btn" onclick="showSection(2)">🌟 Día Juntos</button>
-                <button class="nav-btn" onclick="showSection(3)">🏨 Hotel</button>
-                <button class="nav-btn" onclick="showSection(4)">🎵 Canción</button>
-                <button class="nav-btn" onclick="showSection(5)">🌅 Despedida</button>
-            </div>
-
-            <!-- Sección 0: El inicio -->
-            <div class="section active" id="section-0">
-                <h2><span class="emote">🌅</span> El Inicio de la Aventura <span class="emote">⏰</span></h2>
-                <p>Mi luna hermosa <span class="emote">🌙</span>, ¿te acuerdas que te pedí que me marcaras a las 5:00 am por si no me paraba? <span class="emote">📱</span> Cuando sonó mi teléfono y escuché tu voz dulce, inmediatamente me levanté <span class="emote">😍</span>. Te colgué para irme, pero durante todo el camino te fui informando dónde iba y lo que hacía porque quería que supieras cada paso que me acercaba más a ti <span class="emote">👣💕</span>.</p>
-                
-                <p>Los nervios me tenían despierto desde hace rato, mi amor <span class="emote">😰💓</span>. Mi corazón latía fuerte sabiendo que finalmente te vería en persona. Me arreglé con tanto cuidado <span class="emote">👔✨</span>, me subí al camión que pasaba a las 6:00 am <span class="emote">🚌</span> y durante todo el viaje a San Juan del Río solo pensaba en ti, mi luna preciosa <span class="emote">💭🌙</span>.</p>
-                
-                <p>Llegué alrededor de las 10:30 am <span class="emote">🕐</span> y lo primero que hice fue buscar un hotel <span class="emote">🏨</span>. Quería que todo fuera perfecto para nuestro primer encuentro. Regresé a la central a las 11:30 <span class="emote">🚌</span> para tomar el camión hacia Amealco de Bonfil, donde tú, mi luna, me estarías esperando <span class="emote">🛣️💕</span>.</p>
-                
-                <div class="highlight">
-                    <span class="emote">😅💓</span> "Entre más me acercaba a ti, más nervioso estaba... ¡Por fin iba a ver a mi luna en persona!" <span class="emote">🌙✨</span>
-                </div>
-
-                <div class="section-nav">
-                    <button disabled>⬅️ Anterior</button>
-                    <button onclick="showSection(1)">Siguiente ➡️</button>
-                </div>
-            </div>
-
-            <!-- Sección 1: El encuentro -->
-            <div class="section" id="section-1">
-                <h2><span class="emote">✨</span> El Momento Más Esperado <span class="emote">👥</span></h2>
-                <p>Al llegar a Amealco de Bonfil, mi corazón se aceleró como nunca, mi luna <span class="emote">💓🚌</span>. Ahí estabas tú en la central, esperándome con esa sonrisa que solo conocía por fotos <span class="emote">😊📱</span>. Me acerqué, sonreí nervioso y te abracé <span class="emote">🤗💕</span>. Ese primer abrazo fue mágico - finalmente tenía a mi luna entre mis brazos <span class="emote">🌙💫</span>.</p>
-                
-                <p>Me diste un regalo, un detalle tan dulce que me llenó de ternura, mi amor <span class="emote">🎁💝</span>. Me disculpé por no poder llevarte nada, pues había salido de carrera <span class="emote">🏃‍♂️💨</span>, pero tú solo sonreíste y me dijiste que no importaba, que lo importante era que estuviéramos juntos <span class="emote">😌👫</span>.</p>
-                
-                <div class="highlight">
-                    <span class="emote">🌟🤗</span> "Ese primer abrazo contigo fue como tocar las estrellas... Mi luna por fin estaba conmigo" <span class="emote">⭐🌙</span>
-                </div>
-
-                <div class="section-nav">
-                    <button onclick="showSection(0)">⬅️ Anterior</button>
-                    <button onclick="showSection(2)">Siguiente ➡️</button>
-                </div>
-            </div>
-
-            <!-- Sección 2: El día juntos -->
-            <div class="section" id="section-2">
-                <h2><span class="emote">🌟</span> Un Día Lleno de Momentos <span class="emote">💑</span></h2>
-                <p>Nos regresamos juntos en el mismo camión <span class="emote">🚌👫</span>, pero ahora yo era el hombre más feliz del mundo porque mi luna me acompañaba <span class="emote">😄🌍</span>. Compré los boletos - uno y medio gracias al descuento de estudiante <span class="emote">🎓💰</span>. Nos sentamos juntos y traté de hacerte plática, aunque a veces el silencio también era perfecto contigo <span class="emote">🪑💬</span>.</p>
-                
-                <p>Te pregunté si podía abrazarte y dijiste que sí, pero no me podías mirar porque decías que te chiveaba mucho <span class="emote">🙈😊</span>. ¡Qué tierna eres, mi luna! Me diste un beso en la mejilla y luego unos en la boca <span class="emote">😘💋</span>. En ese momento me sentí tan genial<span class="emote">✨💕</span>.</p>
-                
-                <p>Fuimos a Galerías San Juan del Río donde comimos pizza <span class="emote">🍕🏢</span>. Tú solo comiste dos rebanadas y yo seis <span class="emote">🍕🍕</span>, porque no quisiste comer más ya que estabas contándome sobre tu vida, tus experiencias pasadas. Me platicaste sobre el momento que más marcó tu vida <span class="emote">💭❤️</span>. Luego fuimos al cine donde yo pagué los boletos y tú las palomitas miamor <span class="emote">🎬🍿💕</span>.</p>
-                
-                <p>Nos platicamos sobre nuestras familias - tú me contaste de la tuya y yo de la mía, de mi relación con algunos familiares <span class="emote">👨‍👩‍👧‍👦💬</span>. Vimos "Los 4 Fantásticos" y me encantó ver esa película contigo, amor mío - tenía tantas ganas de verla a tu lado <span class="emote">🦸‍♂️🦸‍♀️</span>, y me alegró mucho cuando me dijiste que te gustó <span class="emote">😊✨</span>. En el cine te recargaste en mí y a ambos nos encantó ese momento de pura conexión, enserio me encantó mucho amor <span class="emote">🎬🍿💕</span>.</p>
-                
-                <div class="highlight">
-                    <span class="emote">🎬💕</span> "Cuando te recargaste en mí en el cine... sentí que el mundo era perfecto, mi luna" <span class="emote">🌍🌙</span>
-                </div>
-
-                <div class="section-nav">
-                    <button onclick="showSection(1)">⬅️ Anterior</button>
-                    <button onclick="showSection(3)">Siguiente ➡️</button>
-                </div>
-            </div>
-
-            <!-- Sección 3: El hotel -->
-            <div class="section" id="section-3">
-                <h2><span class="emote">🏨</span> Nuestro Refugio <span class="emote">💑</span></h2>
-                
-                <p style="text-align: center; font-style: italic; color: var(--accent-color); margin-bottom: 20px;">
-                    <span class="emote">🙈</span> (Espero no esté tu hermanito viendo esta parte jeje) <span class="emote">😅</span>
-                </p>
-                
-                <p>Cuando acabó la película estaba lloviendo, mi luna <span class="emote">🌧️🎬</span>, así que corrimos al hotel agarrados de la mano, riéndonos bajo la lluvia como en las películas románticas <span class="emote">🏃‍♂️🏃‍♀️💕</span>. Una vez en el hotel, me bañé y pusimos una película <span class="emote">🚿📺</span>, aunque tú estabas un poco penosa sentada en una silla mientras yo estaba en la cama <span class="emote">🪑🛏️😊</span>.</p>
-                
-                <p>Casi al final de la película te dije: "Ven, acuéstate amor mío" <span class="emote">💕</span> y me dijiste "al rato" <span class="emote">😊</span>, pero después te acercaste y nos abrazamos <span class="emote">🤗💝</span>. Salimos por un agua <span class="emote">💧🚶‍♂️🚶‍♀️</span> y regresando pusimos otra película. Esta vez te acostaste a mi lado sin pena <span class="emote">📺💑</span>.</p>
-                
-                <p>Nos besamos y vivimos momentos muy especiales que solo nosotros sabemos, mi luna hermosa <span class="emote">💋✨</span>. Esa noche fue mágica, llena de caricias, besos y susurros de amor <span class="emote">🌙💫💕</span>. Por primera vez dormimos juntos, abrazados como el sol y la luna que somos <span class="emote">☀️🌙</span>.</p>
-                
-                <div class="highlight">
-                    <span class="emote">🌙✨</span> "Esa noche contigo descubrimos que el amor puede ser tan tierno como una caricia y tan intenso como las estrellas" <span class="emote">⭐💕</span>
-                </div>
-
-                <div class="section-nav">
-                    <button onclick="showSection(2)">⬅️ Anterior</button>
-                    <button onclick="showSection(4)">Siguiente ➡️</button>
-                </div>
-            </div>
-
-            <!-- Sección 4: La canción -->
-            <div class="section" id="section-4">
-                <h2><span class="emote">🎵</span> La Canción Que Te Canté <span class="emote">🎤</span></h2>
-                
-                <div class="song-section">
-                    <h3 style="color: var(--accent-color); margin-bottom: 20px;"><span class="emote">🎶</span> "Eso y Más" de Joan Sebastián <span class="emote">❤️</span></h3>
-                    
-                    <p style="font-style: italic; margin-bottom: 20px; color: var(--text-secondary);">
-                        <span class="emote">🌅</span> Al día siguiente, cuando nos levantamos temprano, te canté esta hermosa canción que expresa todo lo que siento por ti, mi luna <span class="emote">🌙💕</span>
-                    </p>
-                    
-                    <div style="background: var(--accent-light); padding: 20px; border-radius: 15px; margin: 20px 0;">
-                        <p style="font-style: italic; color: var(--accent-color);">
-                            <span class="emote">💭</span> Esta canción habla de cruzar montes, ríos y valles por amor... de salvar tormentas, ciclones y dragones sin exagerar... <span class="emote">🏔️🌊⛈️</span><br><br>
-                            Exactamente así me siento por ti, mi luna hermosa <span class="emote">🌙✨</span>
-                        </p>
-                    </div>
-                    
-                    <a href="https://www.youtube.com/results?search_query=Joan+Sebastian+Eso+y+más" target="_blank" class="song-button">
-                        <span class="emote">🎧</span> Escuchar "Eso y Más" <span class="emote">▶️</span>
-                    </a>
-                    <a href="https://open.spotify.com/intl-es/track/7HW5tUjaKxBUamSi7nnzPt" target="_blank" class="song-button">
-                        <span class="emote">🟢</span> Spotify <span class="emote">🎵</span>
-                    </a>
-                    
-                    <div style="margin-top: 20px; font-style: italic; color: var(--text-secondary);">
-                        <span class="emote">🎤❤️</span> "Te la canté con todo mi amor, recordando cada verso mientras te miraba a los ojos" <span class="emote">👀💕</span>
-                    </div>
-                </div>
-
-                <div class="section-nav">
-                    <button onclick="showSection(3)">⬅️ Anterior</button>
-                    <button onclick="showSection(5)">Siguiente ➡️</button>
-                </div>
-            </div>
-
-            <!-- Sección 5: La despedida -->
-            <div class="section" id="section-5">
-                <h2><span class="emote">🌅</span> Hasta Volver a Vernos <span class="emote">😢</span></h2>
-                <p>Al día siguiente mis compañeros me dijeron que había evento y tenía que regresar temprano, mi amor <span class="emote">🎵⏰</span>. Tenía que estar donde tocaríamos a la 1:00 pm. Nos levantamos temprano, compartimos más momentos de amor <span class="emote">💕🌅</span> y después de cantarte "Eso y Más", tuvimos que prepararnos para separarnos temporalmente <span class="emote">🎤💔</span>.</p>
-                
-                <p>Te invité a desayunar unos taquitos de canasta <span class="emote">🌮☕</span> y luego nos fuimos a la central <span class="emote">🚌💔</span>. Yo me fui a las 9:50 y tú a las 10:30. Nos despedimos con un beso lleno de promesas <span class="emote">😘💋</span> y solo me quedé con ganas de verte de nuevo, mi luna <span class="emote">😔🌙</span>.</p>
-                
-                <p>Me dijiste que te encantó mucho estar conmigo y que deseabas que estuviéramos juntos nuevamente <span class="emote">😊💕</span>. Lo que más me llegó al corazón fue cuando me dijiste que se te rompió el corazón cuando me fui <span class="emote">💔😢</span>. Ya no pudimos ir por el helado ni por mis chicharrones de res a Amealco <span class="emote">🍦🥩</span>, pero sabíamos que habría más oportunidades <span class="emote">🤞💕</span>.</p>
-                
-                <div class="highlight">
-                    <span class="emote">💔😢</span> "Me dijiste que se te rompió el corazón cuando me fui... y yo sentí lo mismo, mi luna" <span class="emote">🌙💔</span>
-                </div>
-
-                <div class="section-nav">
-                    <button onclick="showSection(4)">⬅️ Anterior</button>
-                    <button disabled>Siguiente ➡️</button>
-                </div>
-            </div>
-
-            <div class="romantic-quote">
-                <span class="emote">🌙💕</span> "Gracias mi luna por regalarme un día que siempre llevaré en el corazón.<br>
-                Esto fue solo el inicio de nuestra historia de amor...<br>
-                Tú eres mi luna perfecta y yo seré siempre tu sol" <span class="heart">☀️🌙</span>
-            </div>
-
-            <div class="footer">
-                <p>Con todo mi amor, de tu Sol para ti, mi Luna hermosa <span class="heart">☀️🌙💕</span></p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Contraseñas válidas (puedes cambiar estas)
-        const validPasswords = [
-            '25/08/25JYE',
-            'MiLunaElizabeth2025', 
-            'SolYLuna250825',
-            'PrimerEncuentro2025',
-            'JoelYElizabeth2025'
-        ];
+    <div class="envelope-container">
+        <!-- Líneas del sobre -->
+        <div class="top-line"></div>
+        <div class="diagonal-line-1"></div>
         
-        let currentSection = 0;
-
-        // Función para verificar contraseña
-        function checkPassword() {
+        <!-- Corazón rojo vibrante -->
+        <div class="heart-container">
+            <div class="heart-emoji">❤️</div>
+            <div class="heart-text">J Y E</div>
+        </div>
+        
+        <!-- Sección de contraseña mejorada -->
+        <div class="password-section">
+            <div class="password-label">CONTRASEÑA</div>
+            <div class="password-input-container">
+                <input 
+                    type="password" 
+                    id="passwordInput" 
+                    class="password-input" 
+                    placeholder="Escribe la contraseña mi corazón"
+                >
+                <button type="button" class="show-password-toggle" id="togglePassword">
+                    👁
+                </button>
+            </div>
+            <button class="submit-button" onclick="validatePassword()">
+                INGRESAR
+            </button>
+            <div class="error-message" id="errorMsg">❌ Contraseña incorrecta, inténtalo de nuevo</div>
+        </div>
+    </div>
+    
+    <!-- Modal de la carta -->
+    <div class="letter-content" id="letterContent">
+        <button class="close-btn" onclick="closeLetter()">✕</button>
+        <div class="letter-paper">
+            <div class="letter-title">Para mi Luna Hermosa 🌙</div>
+            <div class="letter-message">
+                Mi amor, mi luna preciosa 🌙✨<br><br>
+                
+                El día de hoy quise enviarte estas palabras llenas de amor. Cada letra está escrita con el corazón, cada palabra nace del alma que te ama profundamente 💕<br><br>
+                
+                Quería tener este detalle contigo porque te amo y me encantas en cada respirar. Me encanta absolutamente todo de ti: tu sonrisa que ilumina mis días, tu voz que es música para mis oídos, tu forma de ser que me hace el hombre más feliz del mundo 🌟<br><br>
+                
+                Eres mi luna llena en las noches oscuras, eres la luz que guía mi corazón. Te amo tanto que me haces falta como el aire que respiro 💖<br><br>
+                
+                Eres mi todo, mi inspiración, mi razón de ser 💝
+            </div>
+            <div class="letter-signature">
+                Con infinito amor,<br>
+                Tu Sol que siempre brillará para ti ☀️💕
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const correctPassword = "teamomiluna";
+        
+        function validatePassword() {
             const input = document.getElementById('passwordInput');
-            const errorMsg = document.getElementById('errorMessage');
-            const loginScreen = document.getElementById('loginScreen');
-            const mainContent = document.getElementById('mainContent');
+            const errorMsg = document.getElementById('errorMsg');
+            const password = input.value.toLowerCase().trim();
             
-            const enteredPassword = input.value.trim();
-            
-            if (validPasswords.includes(enteredPassword)) {
-                // Contraseña correcta
-                loginScreen.classList.add('hidden');
-                setTimeout(() => {
-                    mainContent.classList.add('visible');
-                    startFloatingHearts();
-                }, 500);
-            } else {
-                // Contraseña incorrecta
-                errorMsg.classList.add('show');
-                input.style.animation = 'shake 0.5s ease-in-out';
+            if (password === correctPassword) {
+                document.getElementById('letterContent').style.display = 'block';
+                errorMsg.classList.remove('show');
                 input.value = '';
+            } else {
+                errorMsg.classList.add('show');
+                input.value = '';
+                input.style.borderColor = '#dc143c';
+                input.style.animation = 'shake 0.6s ease-in-out';
                 
                 setTimeout(() => {
-                    errorMsg.classList.remove('show');
                     input.style.animation = '';
-                }, 3000);
+                    input.style.borderColor = '#2d3436';
+                    errorMsg.classList.remove('show');
+                }, 2500);
             }
         }
         
-        // Permitir enter para enviar
+        function closeLetter() {
+            document.getElementById('letterContent').style.display = 'none';
+        }
+        
+        // Permitir envío con Enter
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                checkPassword();
+                validatePassword();
             }
         });
-
-        function toggleTheme() {
-            const body = document.body;
-            const button = document.querySelector('.theme-toggle');
+        
+        // Agregar animación shake
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                20% { transform: translateX(-8px); }
+                40% { transform: translateX(8px); }
+                60% { transform: translateX(-6px); }
+                80% { transform: translateX(6px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Toggle mostrar/ocultar contraseña
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('passwordInput');
+            const toggleBtn = document.getElementById('togglePassword');
             
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                button.textContent = '🌙';
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleBtn.innerHTML = '🙈';
             } else {
-                body.setAttribute('data-theme', 'dark');
-                button.textContent = '☀️';
+                passwordField.type = 'password';
+                toggleBtn.innerHTML = '👁';
             }
-        }
-
-        function showSection(index) {
-            // Ocultar sección actual
-            const currentEl = document.getElementById(`section-${currentSection}`);
-            if (currentEl) {
-                currentEl.classList.remove('active');
-            }
-
-            // Remover clase active de todos los botones
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Mostrar nueva sección
-            currentSection = index;
-            const newEl = document.getElementById(`section-${currentSection}`);
-            if (newEl) {
-                setTimeout(() => {
-                    newEl.classList.add('active');
-                }, 100);
-            }
-
-            // Activar botón correspondiente
-            const navBtns = document.querySelectorAll('.nav-btn');
-            if (navBtns[index]) {
-                navBtns[index].classList.add('active');
-            }
-        }
-
-        // Crear corazones flotantes
-        function createFloatingHeart() {
-            const heart = document.createElement('div');
-            const hearts = ['💕', '💖', '💗', '💝', '💘', '❤️', '🌙', '☀️', '⭐', '✨'];
-            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-            heart.style.position = 'fixed';
-            heart.style.fontSize = Math.random() * 25 + 15 + 'px';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.top = '100vh';
-            heart.style.pointerEvents = 'none';
-            heart.style.zIndex = '-1';
-            heart.style.animation = `floatUp ${Math.random() * 4 + 3}s ease-in-out forwards`;
-            
-            document.getElementById('floating-hearts').appendChild(heart);
-            
-            setTimeout(() => {
-                if (heart.parentNode) {
-                    heart.remove();
-                }
-            }, 7000);
-        }
-
-        function startFloatingHearts() {
-            // CSS para la animación de corazones flotantes
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes floatUp {
-                    0% {
-                        transform: translateY(0) rotate(0deg);
-                        opacity: 1;
-                    }
-                    100% {
-                        transform: translateY(-100vh) rotate(360deg);
-                        opacity: 0;
-                    }
-                }
-                
-                @keyframes shake {
-                    0%, 100% { transform: translateX(0); }
-                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-                    20%, 40%, 60%, 80% { transform: translateX(5px); }
-                }
-            `;
-            document.head.appendChild(style);
-            
-            // Crear corazones cada cierto tiempo
-            setInterval(createFloatingHeart, 2500);
-        }
-
-        // Inicializar primera sección cuando se cargue el contenido
-        setTimeout(() => {
-            showSection(0);
-        }, 100);
-
-        // Navegación con teclado (solo cuando el contenido esté visible)
-        document.addEventListener('keydown', function(e) {
-            if (document.getElementById('mainContent').classList.contains('visible')) {
-                if (e.key === 'ArrowLeft' && currentSection > 0) {
-                    showSection(currentSection - 1);
-                } else if (e.key === 'ArrowRight' && currentSection < 5) {
-                    showSection(currentSection + 1);
-                }
-            }
+        });
+        
+        // Enfocar el campo al cargar
+        window.addEventListener('load', () => {
+            document.getElementById('passwordInput').focus();
         });
     </script>
 </body>
