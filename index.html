@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Elizabeth 💕</title>
+    <title>Para Mi Luna 💕</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
             color: #fff;
         }
         
@@ -28,25 +28,25 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            max-width: 700px;
+            max-width: 500px;
             width: 100%;
-            padding: 50px;
+            padding: 25px;
             position: relative;
             overflow: hidden;
         }
         
         .glow {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             background: radial-gradient(circle, rgba(255,107,157,0.3) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
             animation: pulse 3s infinite;
         }
         
-        .glow1 { top: -150px; left: -150px; }
-        .glow2 { bottom: -150px; right: -150px; animation-delay: 1.5s; }
+        .glow1 { top: -100px; left: -100px; }
+        .glow2 { bottom: -100px; right: -100px; animation-delay: 1.5s; }
         
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 0.3; }
@@ -56,102 +56,94 @@
         h1 {
             color: #ff6b9d;
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-size: 2em;
             text-shadow: 0 0 20px rgba(255,107,157,0.5);
         }
         
         .subtitle {
             text-align: center;
             color: #ffa6c9;
-            margin-bottom: 40px;
-            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-size: 1em;
             font-style: italic;
         }
         
         .countdown {
             text-align: center;
-            font-size: 1.3em;
+            font-size: 1.1em;
             color: #ffd700;
-            margin-bottom: 30px;
-            padding: 15px;
+            margin-bottom: 20px;
+            padding: 12px;
             background: rgba(255, 215, 0, 0.1);
             border-radius: 10px;
             border: 2px solid rgba(255, 215, 0, 0.3);
         }
         
-        .intro-text {
+        .text-card {
             background: rgba(255, 107, 157, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            margin: 30px 0;
-            line-height: 1.8;
-            font-size: 1.1em;
-            border-left: 4px solid #ff6b9d;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            line-height: 1.7;
+            font-size: 1em;
+            border-left: 3px solid #ff6b9d;
             color: #ffd6e7;
         }
         
-        .passion-section {
-            background: linear-gradient(135deg, rgba(255,107,157,0.15) 0%, rgba(255,64,129,0.15) 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border: 2px solid rgba(255,107,157,0.3);
-        }
-        
-        .passion-text {
-            color: #ffb3d9;
-            line-height: 1.9;
-            font-size: 1.15em;
-            text-align: justify;
-            margin-bottom: 20px;
+        .highlight {
+            color: #ffd700;
+            font-weight: bold;
         }
         
         .final-question {
             background: rgba(255, 64, 129, 0.2);
-            padding: 35px;
+            padding: 25px;
             border-radius: 15px;
-            margin: 30px 0;
+            margin: 20px 0;
             text-align: center;
             border: 3px solid #ff4081;
             box-shadow: 0 0 30px rgba(255,64,129,0.4);
         }
         
         .question-text {
-            font-size: 1.4em;
+            font-size: 1.2em;
             color: #fff;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: bold;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .buttons-container {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
         
         .btn {
-            padding: 18px 45px;
-            font-size: 1.3em;
+            padding: 15px 35px;
+            font-size: 1.1em;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.3s;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
         
         .btn-yes {
             background: linear-gradient(135deg, #ff6b9d 0%, #ff4081 100%);
             color: white;
             box-shadow: 0 10px 30px rgba(255,64,129,0.5);
+            flex: 1;
+            min-width: 140px;
         }
         
         .btn-yes:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0 15px 40px rgba(255,64,129,0.7);
         }
         
@@ -159,6 +151,8 @@
             background: rgba(255,255,255,0.1);
             color: #fff;
             border: 2px solid rgba(255,255,255,0.3);
+            flex: 1;
+            min-width: 140px;
         }
         
         .btn-no:hover {
@@ -168,7 +162,7 @@
         .response {
             display: none;
             text-align: center;
-            padding: 40px;
+            padding: 30px 15px;
             animation: fadeIn 1.5s;
         }
         
@@ -179,27 +173,27 @@
         
         .response h2 {
             color: #ff6b9d;
-            font-size: 3em;
-            margin-bottom: 30px;
+            font-size: 2.2em;
+            margin-bottom: 20px;
             text-shadow: 0 0 20px rgba(255,107,157,0.7);
         }
         
         .response-text {
             color: #ffd6e7;
-            font-size: 1.3em;
-            line-height: 2;
-            margin: 20px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin: 15px 0;
         }
         
         .emoji-big {
-            font-size: 4em;
-            margin: 30px 0;
+            font-size: 3.5em;
+            margin: 20px 0;
             animation: bounce 1s infinite;
         }
         
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
 
         .warning-modal {
@@ -208,49 +202,80 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 1000;
             animation: fadeIn 0.3s;
+            padding: 15px;
         }
 
         .warning-content {
             background: linear-gradient(135deg, #ff4081 0%, #ff6b9d 100%);
-            padding: 40px;
+            padding: 30px 20px;
             border-radius: 20px;
             text-align: center;
-            max-width: 500px;
+            max-width: 400px;
+            width: 100%;
             box-shadow: 0 20px 60px rgba(255,64,129,0.8);
         }
 
         .warning-content h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin-bottom: 15px;
             color: white;
         }
 
         .warning-content p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.1em;
+            margin-bottom: 25px;
             color: rgba(255,255,255,0.9);
+            line-height: 1.6;
         }
 
         .think-btn {
             background: white;
             color: #ff4081;
-            padding: 15px 40px;
+            padding: 15px 35px;
             border: none;
             border-radius: 50px;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .think-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .text-card {
+                font-size: 0.95em;
+                padding: 15px;
+            }
+            
+            .question-text {
+                font-size: 1.1em;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            
+            .response h2 {
+                font-size: 1.8em;
+            }
         }
     </style>
 </head>
@@ -261,86 +286,52 @@
         
         <div id="formSection">
             <h1>Para Mi Luna 💕</h1>
-            <p class="subtitle">Mi Iris, Mi luna, mi Elizabeth, mi Todo</p>
+            <p class="subtitle">Mi Iris, mi Elizabeth, mi Todo</p>
             
             <div class="countdown">
-                🎉 ¡Hoy celebramos 3 meses juntos! 🎉
+                🎉 ¡3 meses juntos! 🎉
             </div>
             
-            <div class="intro-text">
-                Han pasado meses desde la última vez que pude sentirte cerca de mí, desde que pude tocar tu piel 
-                y perderme en tus ojos. Esta distancia ha sido una tortura hermosa, porque cada día que pasa 
-                solo intensifica mis ganas de tenerte entre mis brazos otra vez.
-                <br><br>
-                ¿Recuerdas aquella noche mágica en San Juan del Río? Nuestra primera vez juntos... 
-                Jamás olvidaré cada segundo de esa noche. La forma en que nos entregamos el uno al otro, 
-                la conexión tan profunda que sentimos, cómo todo el mundo desapareció y solo existíamos nosotros dos.
+            <div class="text-card">
+                ¿Recuerdas San Juan del Río? Esa noche donde todo comenzó... 
+                Desde entonces, no he podido sacarte de mi mente. Han pasado meses 
+                y la distancia solo ha hecho que <span class="highlight">mis ganas de ti 
+                se multipliquen</span>.
             </div>
             
-            <div class="passion-section">
-                <div class="passion-text">
-                    Mi Luna, no sabes cuánto te extraño... No solo tu compañía, sino cada centímetro de ti. 
-                    Extraño el sabor de tus labios, el calor de tu cuerpo contra el mío, la manera en que 
-                    suspiras cuando te beso el cuello. 
-                </div>
-                
-                <div class="passion-text">
-                    Muero por volver a recorrer tu cuerpo con mis manos, por sentir tu piel tan suave como 
-                    terciopelo bajo mis dedos. Quiero descubrirte de nuevo, como si fuera la primera vez, 
-                    pero con la intensidad de quien sabe exactamente lo que le vuelve loco.
-                </div>
-                
-                <div class="passion-text">
-                    Quiero revivir aquella noche en San Juan del Río, pero con toda la intensidad 
-                    de estos meses de anhelo. Quiero volver a descubrirte como la primera vez, 
-                    pero ahora conociéndote mejor, sabiendo exactamente qué te hace temblar, 
-                    qué te hace suspirar mi nombre. Aquella noche fue perfecta, pero sé que podemos 
-                    superar cada sensación, cada gemido, cada momento de placer que compartimos.
-                </div>
-                
-                <div class="passion-text">
-                    Pienso en ti de maneras que me hacen perder la razón. Imagino tus curvas perfectas, 
-                    tu esencia que me embriaga, ese lugar sagrado entre tus piernas que es como el paraíso 
-                    mismo... dulce, cálido, y completamente adictivo. Como una fruta prohibida que solo yo 
-                    tengo el privilegio de saborear. Quiero hundirme en ti, sentir cómo me recibes, 
-                    cómo tu cuerpo se amolda al mío como si estuviéramos hechos el uno para el otro.
-                </div>
-                
-                <div class="passion-text">
-                    Quiero hacerte sentir cosas que nunca has sentido. Quiero que te pierdas en el placer, 
-                    que grites mi nombre, que tus manos se aferren a mí como si fuera lo único real en el mundo. 
-                    Quiero ver cómo te estremeces, cómo tu respiración se acelera, cómo tus ojos se cierran 
-                    de puro éxtasis cuando estamos juntos.
-                </div>
-                
-                <div class="passion-text">
-                    Esta distancia nos ha separado físicamente, pero ha hecho que mis deseos por ti se 
-                    multipliquen. Cada noche pienso en todo lo que quiero hacerte, en cómo quiero explorarte, 
-                    complacerte, y hacerte mía una y otra vez hasta que el mundo desaparezca y solo existamos 
-                    nosotros dos, perdidos en nuestra propia realidad... tal como en San Juan del Río, 
-                    pero aún más intenso, porque ahora sé exactamente cómo volverte loca de placer.
-                </div>
-                
-                <div class="passion-text">
-                    Quiero ser el dueño de tus gemidos, el responsable de cada escalofrío que recorra tu espalda, 
-                    el único que puede llevarte a ese lugar donde no existe nada más que placer puro. 
-                    Quiero amarte con la intensidad de todos estos meses de espera acumulados en cada beso, 
-                    en cada caricia, en cada momento que compartamos.
-                </div>
+            <div class="text-card">
+                Extraño tu piel, tu sabor, la forma en que encajamos perfectamente. 
+                Quiero volver a recorrerte completa, <span class="highlight">descubrir 
+                ese paraíso</span> entre tus piernas que me vuelve loco... dulce, 
+                cálido, perfecto. Como la fruta más deliciosa que solo yo puedo probar.
+            </div>
+            
+            <div class="text-card">
+                Pienso en cómo <span class="highlight">me recibes cuando entro en ti</span>, 
+                cómo tu cuerpo se amolda al mío, cómo suspiras mi nombre. Quiero escucharte 
+                gemir, sentir cómo te estremeces, verte perder el control cuando 
+                <span class="highlight">te hago mía</span> una y otra vez.
+            </div>
+            
+            <div class="text-card">
+                Esta espera me está matando. Necesito <span class="highlight">llenar ese vacío</span> 
+                que dejamos la última vez, hacerte sentir cosas que ni imaginabas. Quiero que 
+                esta vez sea aún más intensa... que me ruegues por más.
             </div>
             
             <div class="final-question">
                 <p class="question-text">
                     Entonces dime, mi Luna...<br>
-                    Mi Riis, mi Todo, mi Señorita Elizabeth...<br><br>
-                    ¿Aceptas dejarme entrar en ti otra vez?<br>
-                    ¿Me das permiso para hacerte el amor como solo yo sé hacerlo?<br>
-                    ¿Me permites volver a perdernos juntos en la pasión?<br><br>
-                    <span style="color: #ffd700;">¿Qué dices, amor mío?</span>
+                    Mi Riis, mi Todo,<br>
+                    mi Señorita Elizabeth...<br><br>
+                    ¿Me das permiso de <span class="highlight">entrar</span>?<br>
+                    ¿Me dejas hacerte el amor<br>
+                    como solo yo sé hacerlo?<br><br>
+                    <span style="color: #ffd700;">¿Qué dices? 😏</span>
                 </p>
                 
                 <div class="buttons-container">
-                    <button class="btn btn-yes" id="yesBtn">Sí, mi amor 💕</button>
+                    <button class="btn btn-yes" id="yesBtn">Sí, ven 💕</button>
                     <button class="btn btn-no" id="noBtn">No...</button>
                 </div>
             </div>
@@ -350,14 +341,13 @@
             <div class="emoji-big">🔥💕🔥</div>
             <h2>¡Sabía que dirías que sí!</h2>
             <p class="response-text">
-                Porque somos uno solo, mi Luna...<br><br>
                 Ya quiero tenerte entre mis brazos,<br>
-                sentir tu respiración contra mi pecho,<br>
-                y demostrarte con hechos todo lo que te acabo de decir...<br><br>
-                <strong style="color: #ffd700; font-size: 1.4em;">
-                    Prepárate para lo que viene, Señorita Elizabeth 😏🔥
+                sentir tu respiración acelerada,<br>
+                y <span class="highlight">llenarte</span> como solo yo puedo...<br><br>
+                <strong style="color: #ffd700; font-size: 1.3em;">
+                    Prepárate, Señorita Elizabeth 😏🔥
                 </strong><br><br>
-                Esta espera valdrá cada segundo...<br>
+                Esto va a ser inolvidable...<br>
                 Te amo infinitamente 💖
             </p>
         </div>
@@ -365,15 +355,14 @@
 
     <div class="warning-modal" id="warningModal">
         <div class="warning-content">
-            <h3>¿Estás segura? 🤔</h3>
+            <h3>¿En serio? 🤔</h3>
             <p>
                 Piénsalo bien, mi amor...<br><br>
-                Sabes que me muero por ti,<br>
-                que te necesito,<br>
+                Sabes que me muero por estar <span class="highlight">dentro de ti</span> otra vez,<br>
                 que esta distancia ha sido una tortura...<br><br>
-                <strong>¿De verdad quieres hacerme sufrir más? 😢</strong>
+                <strong>¿De verdad me vas a dejar así? 😢</strong>
             </p>
-            <button class="think-btn" id="thinkBtn">Tienes razón... Sí quiero 💕</button>
+            <button class="think-btn" id="thinkBtn">Tienes razón... Ven 💕</button>
         </div>
     </div>
     
