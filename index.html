@@ -3,890 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3 Meses Juntos - Mi Luna 🌙</title>
+    <title>Para Elizabeth 💕</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .stars {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .header {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .initials-heart {
-            width: 200px;
-            height: 200px;
-            margin: 20px auto;
-            position: relative;
-            animation: heartbeat 2s ease-in-out infinite;
-        }
-
-        .initials-heart svg {
-            filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.3));
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            10%, 30% { transform: scale(1.1); }
-            20%, 40% { transform: scale(1); }
-        }
-
-        .header h1 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .header .subtitle {
-            font-size: 1.5em;
-            margin-top: 15px;
-            opacity: 0.95;
-        }
-
-        .icons {
-            font-size: 3em;
-            margin: 20px 0;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            animation: fadeInUp 0.8s ease-out;
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section-title {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #f093fb;
-            padding-bottom: 10px;
-        }
-
-        .date-badge {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .photo-placeholder {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            font-style: italic;
-            color: #666;
-            border: 3px dashed #667eea;
-        }
-
-        .clash-comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .clash-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .clash-card:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
-
-        .clash-card h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .clash-stats {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-
-        .stat-item {
-            margin: 8px 0;
-            font-size: 1.1em;
-        }
-
-        .locked-section {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 20px;
-            padding: 60px 40px;
-            margin: 30px 0;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-        }
-
-        .locked-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255,255,255,0.05) 10px,
-                rgba(255,255,255,0.05) 20px
-            );
-            animation: moveStripes 20s linear infinite;
-        }
-
-        @keyframes moveStripes {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .lock-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .lock-heart {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 30px;
-            position: relative;
-            z-index: 1;
-            animation: heartbeat 2s ease-in-out infinite;
-        }
-
-        .lock-heart svg {
-            filter: drop-shadow(0 8px 20px rgba(255, 255, 255, 0.4));
-        }
-
-        .locked-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .password-input {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .password-input.active {
-            display: block;
-        }
-
-        .password-input input {
-            padding: 15px 25px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 30px;
-            width: 300px;
-            max-width: 90%;
-            text-align: center;
-        }
-
-        .unlock-btn {
-            background: white;
-            color: #667eea;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2em;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .unlock-btn:hover {
-            background: #f093fb;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .hidden-content {
-            display: none;
-        }
-
-        .main-content {
-            display: none;
-        }
-
-        .main-content.unlocked {
-            display: block;
-        }
-
-        .timeline-line {
-            text-align: center;
-            font-size: 2em;
-            color: white;
-            margin: 40px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .heart-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            animation: fall 10s linear infinite;
-            opacity: 0;
-        }
-
-        @keyframes fall {
-            0% {
-                top: -10%;
-                opacity: 1;
-            }
-            100% {
-                top: 110%;
-                opacity: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
-            }
-            
-            .clash-comparison {
-                grid-template-columns: 1fr;
-            }
-            
-            .section {
-                padding: 25px;
-            }
-        }
-
-        /* Modal para imágenes */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            animation: fadeIn 0.3s ease;
-            overflow: auto;
+            align-items: center;
             padding: 20px;
+            color: #fff;
         }
-
-        .modal-content {
-            position: relative;
-            margin: auto;
-            max-width: 600px;
-            width: 90%;
-            animation: zoomIn 0.3s ease;
-        }
-
-        .modal-content img {
+        
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            max-width: 700px;
             width: 100%;
-            height: auto;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,107,157,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: pulse 3s infinite;
+        }
+        
+        .glow1 { top: -150px; left: -150px; }
+        .glow2 { bottom: -150px; right: -150px; animation-delay: 1.5s; }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+        }
+        
+        h1 {
+            color: #ff6b9d;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px rgba(255,107,157,0.5);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #ffa6c9;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        
+        .countdown {
+            text-align: center;
+            font-size: 1.3em;
+            color: #ffd700;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
             border-radius: 10px;
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
-            display: block;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .intro-text {
+            background: rgba(255, 107, 157, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            line-height: 1.8;
+            font-size: 1.1em;
+            border-left: 4px solid #ff6b9d;
+            color: #ffd6e7;
+        }
+        
+        .passion-section {
+            background: linear-gradient(135deg, rgba(255,107,157,0.15) 0%, rgba(255,64,129,0.15) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid rgba(255,107,157,0.3);
+        }
+        
+        .passion-text {
+            color: #ffb3d9;
+            line-height: 1.9;
+            font-size: 1.15em;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        
+        .final-question {
+            background: rgba(255, 64, 129, 0.2);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border: 3px solid #ff4081;
+            box-shadow: 0 0 30px rgba(255,64,129,0.4);
+        }
+        
+        .question-text {
+            font-size: 1.4em;
+            color: #fff;
+            margin-bottom: 25px;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+        
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 18px 45px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .btn-yes {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff4081 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255,64,129,0.5);
+        }
+        
+        .btn-yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255,64,129,0.7);
+        }
+        
+        .btn-no {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-no:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .response {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            animation: fadeIn 1.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .response h2 {
+            color: #ff6b9d;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255,107,157,0.7);
+        }
+        
+        .response-text {
+            color: #ffd6e7;
+            font-size: 1.3em;
+            line-height: 2;
+            margin: 20px 0;
+        }
+        
+        .emoji-big {
+            font-size: 4em;
+            margin: 30px 0;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        .close-modal {
+        .warning-modal {
             position: fixed;
-            top: 15px;
-            right: 25px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s;
+        }
+
+        .warning-content {
+            background: linear-gradient(135deg, #ff4081 0%, #ff6b9d 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(255,64,129,0.8);
+        }
+
+        .warning-content h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
             color: white;
-            font-size: 40px;
+        }
+
+        .warning-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .think-btn {
+            background: white;
+            color: #ff4081;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
-            z-index: 1001;
-            transition: color 0.3s ease;
-            background: rgba(0, 0, 0, 0.5);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
+            transition: all 0.3s;
         }
 
-        .close-modal:hover {
-            color: #f093fb;
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        img:hover {
-            transform: scale(1.02);
-        }
-
-        @media (max-width: 768px) {
-            .close-modal {
-                font-size: 35px;
-                width: 45px;
-                height: 45px;
-                top: 10px;
-                right: 10px;
-            }
-            
-            .modal {
-                padding: 10px;
-            }
+        .think-btn:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
-    <div class="heart-rain" id="heartRain"></div>
-
-    <!-- Modal para ver imágenes -->
-    <div id="imageModal" class="modal" onclick="closeModal(event)">
-        <span class="close-modal" onclick="closeModal(event)">&times;</span>
-        <div class="modal-content">
-            <img id="modalImage" src="" alt="Imagen ampliada">
-        </div>
-    </div>
-
     <div class="container">
-        <div class="header">
-            <div class="icons">☀️🌙</div>
-            <h1>3 Meses Juntos</h1>
-            <div class="initials-heart">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Corazón -->
-                    <path d="M100,170 C100,170 30,120 30,80 C30,50 50,30 75,30 C85,30 95,35 100,45 C105,35 115,30 125,30 C150,30 170,50 170,80 C170,120 100,170 100,170 Z" 
-                          fill="url(#heartGradient)" stroke="white" stroke-width="3"/>
-                    
-                    <!-- Gradiente del corazón -->
-                    <defs>
-                        <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ff0844;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#d62828;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    
-                    <!-- Letra J -->
-                    <text x="60" y="95" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="white" text-anchor="middle">J</text>
-                    
-                    <!-- Y en el medio -->
-                    <text x="100" y="100" font-family="Georgia, serif" font-size="35" font-weight="bold" fill="white" text-anchor="middle">y</text>
-                    
-                    <!-- Letra E -->
-                    <text x="140" y="95" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="white" text-anchor="middle">E</text>
-                </svg>
-            </div>
-            <p class="subtitle">Mi Iris, Mi Elizabeth, Mi Luna Hermosa</p>
-            <p style="margin-top: 10px; font-size: 1.2em;">23 de Octubre, 2025</p>
-        </div>
-
-        <!-- Sección Bloqueada Inicial -->
-        <div class="locked-section" id="initialLock">
-            <div class="locked-content">
-                <div class="lock-heart">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Corazón -->
-                        <path d="M100,170 C100,170 30,120 30,80 C30,50 50,30 75,30 C85,30 95,35 100,45 C105,35 115,30 125,30 C150,30 170,50 170,80 C170,120 100,170 100,170 Z" 
-                              fill="url(#lockHeartGradient)" stroke="white" stroke-width="3"/>
-                        
-                        <!-- Gradiente del corazón -->
-                        <defs>
-                            <linearGradient id="lockHeartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#ff6ec7;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#a78bfa;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        
-                        <!-- Letra J -->
-                        <text x="60" y="95" font-family="Georgia, serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle">J</text>
-                        
-                        <!-- Y en el medio -->
-                        <text x="100" y="100" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">y</text>
-                        
-                        <!-- Letra E -->
-                        <text x="140" y="95" font-family="Georgia, serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle">E</text>
-                    </svg>
-                </div>
-                <h2 style="font-size: 2.5em; margin-bottom: 15px;">Algo Especial Te Espera</h2>
-                <p style="font-size: 1.3em; margin-bottom: 30px; line-height: 1.6;">
-                    Mi amor, este sitio contiene todos nuestros recuerdos de estos 3 meses increíbles juntos.<br>
-                    Para ver todo el contenido, ingresa la contraseña especial 💖
-                </p>
-                <div style="margin-top: 30px;">
-                    <input type="text" id="mainPassword" placeholder="Escribe la contraseña aquí" 
-                           style="padding: 15px 25px; font-size: 1.2em; border: none; border-radius: 30px; width: 300px; max-width: 90%; text-align: center;" />
-                    <br>
-                    <button class="unlock-btn" onclick="unlockMainContent()" style="margin-top: 20px;">
-                        Desbloquear Nuestros Recuerdos 💕
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contenido Principal (Bloqueado inicialmente) -->
-        <div class="main-content" id="mainContent">
-
-        <!-- Primera Cita -->
-        <div class="section">
-            <h2 class="section-title">🎬 Nuestra Primera Cita</h2>
-            <div class="date-badge">25 de Julio, 2024 - San Juan del Río</div>
-            <p style="font-size: 1.2em; line-height: 1.8; margin: 20px 0;">
-                Todo comenzó ese día mágico en San Juan del Río cuando fuimos al cine. 
-                Ese momento fue el inicio de algo hermoso, algo que ni siquiera imaginábamos 
-                que se convertiría en esta conexión tan especial que tenemos hoy.
-            </p>
-            <img src="cine_con_mi_luna.jpg" alt="Nuestra primera cita en el cine" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)" />
-            <p style="font-style: italic; color: #667eea; text-align: center; margin-top: 15px;">
-                "El día donde el Sol conoció a su Luna"
-            </p>
-        </div>
-
-        <div class="timeline-line">💫 ✨ 💫</div>
-
-        <!-- Primeras Flores Enviadas -->
-        <div class="section">
-            <h2 class="section-title">💐 Las Primeras Flores Que Te Envié</h2>
-            <div class="date-badge">Nuestro Segundo Mes Juntos</div>
-            <p style="font-size: 1.2em; line-height: 1.8; margin: 20px 0;">
-                Estas fueron las primeras flores que te envié, mi Luna hermosa. Quería que sintieras 
-                mi amor a pesar de la distancia. Ver tu reacción al recibirlas fue uno de los momentos 
-                más hermosos para mí. Cada pétalo llevaba un pedacito de mi corazón para ti.
-            </p>
-            <img src="primeras_flores.jpg" alt="Las primeras flores que te envié" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)" />
-            <p style="font-style: italic; color: #667eea; text-align: center; margin-top: 15px;">
-                "El inicio de una tradición de hacerte sonreír"
-            </p>
-        </div>
-
-        <div class="timeline-line">💫 ✨ 💫</div>
-
-        <!-- Relación Virtual -->
-        <div class="section">
-            <h2 class="section-title">💌 Nuestra Historia Virtual</h2>
-            <div class="date-badge">Desde ese día hasta hoy...</div>
-            <p style="font-size: 1.2em; line-height: 1.8; margin: 20px 0;">
-                Desde aquella primera cita, toda nuestra relación ha sido virtual, pero eso no ha 
-                impedido que lo que sentimos sea completamente real. Es increíble cómo ha pasado el tiempo, 
-                hemos enfrentado retos, hemos reído juntos, nos hemos apoyado en momentos difíciles, 
-                y aquí seguimos... <strong>juntos, mi amor</strong>.
-            </p>
-            <p style="font-size: 1.2em; line-height: 1.8; margin: 20px 0; color: #764ba2;">
-                La distancia física no significa nada cuando dos corazones están tan conectados como los nuestros. 
-                Cada mensaje, cada llamada, cada "te amo" ha construido algo más fuerte que cualquier obstáculo.
-            </p>
-        </div>
-
-        <div class="timeline-line">🌻 💛 🌻</div>
-
-        <!-- Flores Amarillas -->
-        <div class="section">
-            <h2 class="section-title">🌻 21 de Septiembre - Tus Flores Amarillas</h2>
-            <div class="date-badge">21 de Septiembre, 2024</div>
-            <p style="font-size: 1.2em; line-height: 1.8; margin: 20px 0;">
-                Este día fue especial porque pude regalarte flores amarillas, esas flores que simbolizan 
-                la alegría y la luz que tú traes a mi vida. Ver tu sonrisa al recibirlas hizo que todo 
-                valiera la pena. Eres mi rayo de sol, mi Luna hermosa.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin: 20px 0;">
-                <img src="amarillasflore.jpg" alt="Flores amarillas 1" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)" />
-                <img src="floreamarillas.jpg" alt="Flores amarillas 2" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)" />
-            </div>
-        </div>
-
-        <div class="timeline-line">👑 ⚔️ 👑</div>
-
-        <!-- Clash Royale -->
-        <div class="section">
-            <h2 class="section-title">⚔️ Nuestras Batallas en Clash Royale</h2>
-            <div class="date-badge">Jugadores Pro en Acción 🎮</div>
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+        
+        <div id="formSection">
+            <h1>Para Mi Luna 💕</h1>
+            <p class="subtitle">Mi Riis, mi Elizabeth, mi Todo</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
-                <img src="clash_conminovia.jpg" alt="Inicio de la batalla" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)" />
-                <img src="clash_conminovia1.jpg" alt="En plena acción" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)" />
-                <img src="clash_conminovia2.jpg" alt="Final épico" style="width: 100%; height: 200px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)" />
+            <div class="countdown">
+                🎉 ¡Hoy celebramos 3 meses juntos! 🎉
             </div>
             
-            <div class="clash-comparison">
-                <div class="clash-card">
-                    <h3>☀️ El Sol (Yo)</h3>
-                    <div style="font-size: 3em; margin: 15px 0;">🔥</div>
-                    <div class="clash-stats">
-                        <div class="stat-item">💪 Ataque: Agresivo</div>
-                        <div class="stat-item">🛡️ Defensa: Protector</div>
-                        <div class="stat-item">❤️ Elixir: Amor Infinito</div>
-                        <div class="stat-item">⭐ Habilidad: Hacer reír a mi Luna</div>
-                    </div>
-                    <p style="margin-top: 15px; font-style: italic;">
-                        "Como el Mega Caballero, siempre saltando a defender a mi equipo"
-                    </p>
+            <div class="intro-text">
+                Han pasado meses desde la última vez que pude sentirte cerca de mí, desde que pude tocar tu piel 
+                y perderme en tus ojos. Esta distancia ha sido una tortura hermosa, porque cada día que pasa 
+                solo intensifica mis ganas de tenerte entre mis brazos otra vez.
+                <br><br>
+                ¿Recuerdas aquella noche mágica en San Juan del Río? Nuestra primera vez juntos... 
+                Jamás olvidaré cada segundo de esa noche. La forma en que nos entregamos el uno al otro, 
+                la conexión tan profunda que sentimos, cómo todo el mundo desapareció y solo existíamos nosotros dos.
+            </div>
+            
+            <div class="passion-section">
+                <div class="passion-text">
+                    Mi Luna, no sabes cuánto te extraño... No solo tu compañía, sino cada centímetro de ti. 
+                    Extraño el sabor de tus labios, el calor de tu cuerpo contra el mío, la manera en que 
+                    suspiras cuando te beso el cuello. 
                 </div>
-
-                <div class="clash-card">
-                    <h3>🌙 Mi Luna (Tú)</h3>
-                    <div style="font-size: 3em; margin: 15px 0;">✨</div>
-                    <div class="clash-stats">
-                        <div class="stat-item">💫 Magia: Legendaria</div>
-                        <div class="stat-item">💝 Encanto: Nivel Máximo</div>
-                        <div class="stat-item">🌟 Belleza: Incomparable</div>
-                        <div class="stat-item">⭐ Habilidad: Iluminar mi vida</div>
-                    </div>
-                    <p style="margin-top: 15px; font-style: italic;">
-                        "Como la Princesa, rara y preciosa, imposible de reemplazar"
-                    </p>
+                
+                <div class="passion-text">
+                    Muero por volver a recorrer tu cuerpo con mis manos, por sentir tu piel tan suave como 
+                    terciopelo bajo mis dedos. Quiero descubrirte de nuevo, como si fuera la primera vez, 
+                    pero con la intensidad de quien sabe exactamente lo que le vuelve loco.
+                </div>
+                
+                <div class="passion-text">
+                    Quiero revivir aquella noche en San Juan del Río, pero con toda la intensidad 
+                    de estos meses de anhelo. Quiero volver a descubrirte como la primera vez, 
+                    pero ahora conociéndote mejor, sabiendo exactamente qué te hace temblar, 
+                    qué te hace suspirar mi nombre. Aquella noche fue perfecta, pero sé que podemos 
+                    superar cada sensación, cada gemido, cada momento de placer que compartimos.
+                </div>
+                
+                <div class="passion-text">
+                    Pienso en ti de maneras que me hacen perder la razón. Imagino tus curvas perfectas, 
+                    tu esencia que me embriaga, ese lugar sagrado entre tus piernas que es como el paraíso 
+                    mismo... dulce, cálido, y completamente adictivo. Como una fruta prohibida que solo yo 
+                    tengo el privilegio de saborear. Quiero hundirme en ti, sentir cómo me recibes, 
+                    cómo tu cuerpo se amolda al mío como si estuviéramos hechos el uno para el otro.
+                </div>
+                
+                <div class="passion-text">
+                    Quiero hacerte sentir cosas que nunca has sentido. Quiero que te pierdas en el placer, 
+                    que grites mi nombre, que tus manos se aferren a mí como si fuera lo único real en el mundo. 
+                    Quiero ver cómo te estremeces, cómo tu respiración se acelera, cómo tus ojos se cierran 
+                    de puro éxtasis cuando estamos juntos.
+                </div>
+                
+                <div class="passion-text">
+                    Esta distancia nos ha separado físicamente, pero ha hecho que mis deseos por ti se 
+                    multipliquen. Cada noche pienso en todo lo que quiero hacerte, en cómo quiero explorarte, 
+                    complacerte, y hacerte mía una y otra vez hasta que el mundo desaparezca y solo existamos 
+                    nosotros dos, perdidos en nuestra propia realidad... tal como en San Juan del Río, 
+                    pero aún más intenso, porque ahora sé exactamente cómo volverte loca de placer.
+                </div>
+                
+                <div class="passion-text">
+                    Quiero ser el dueño de tus gemidos, el responsable de cada escalofrío que recorra tu espalda, 
+                    el único que puede llevarte a ese lugar donde no existe nada más que placer puro. 
+                    Quiero amarte con la intensidad de todos estos meses de espera acumulados en cada beso, 
+                    en cada caricia, en cada momento que compartamos.
                 </div>
             </div>
-
-            <div style="background: linear-gradient(135deg, #f093fb, #667eea); padding: 25px; border-radius: 15px; margin-top: 30px; color: white; text-align: center;">
-                <h3 style="font-size: 1.8em; margin-bottom: 15px;">🏆 Nuestro Deck Invencible</h3>
-                <p style="font-size: 1.2em; line-height: 1.6;">
-                    Juntos formamos el mejor equipo. Como en Clash Royale, sabemos que la mejor estrategia 
-                    es jugar juntos, apoyarnos mutuamente y celebrar cada victoria, sin importar cuán pequeña sea. 
-                    <strong>¡Somos un combo legendario!</strong>
+            
+            <div class="final-question">
+                <p class="question-text">
+                    Entonces dime, mi Luna...<br>
+                    Mi Riis, mi Todo, mi Señorita Elizabeth...<br><br>
+                    ¿Aceptas dejarme entrar en ti otra vez?<br>
+                    ¿Me das permiso para hacerte el amor como solo yo sé hacerlo?<br>
+                    ¿Me permites volver a perdernos juntos en la pasión?<br><br>
+                    <span style="color: #ffd700;">¿Qué dices, amor mío?</span>
                 </p>
+                
+                <div class="buttons-container">
+                    <button class="btn btn-yes" id="yesBtn">Sí, mi amor 💕</button>
+                    <button class="btn btn-no" id="noBtn">No...</button>
+                </div>
             </div>
         </div>
-
-        <div class="timeline-line">💐 💕 💐</div>
-
-        <!-- Flores Recientes -->
-        <div class="section">
-            <h2 class="section-title">💐 Flores Simplemente Porque Sí</h2>
-            <div class="date-badge">Hace poco...</div>
-            <p style="font-size: 1.2em; line-height: 1.8; margin: 20px 0;">
-                Y recientemente te envié más flores, no porque fuera una fecha especial, sino simplemente 
-                porque quiero que sepas que pienso en ti todo el tiempo. Porque mereces flores todos los días. 
-                Porque eres especial y quiero que lo sientas siempre.
+        
+        <div id="responseSection" class="response">
+            <div class="emoji-big">🔥💕🔥</div>
+            <h2>¡Sabía que dirías que sí!</h2>
+            <p class="response-text">
+                Porque somos uno solo, mi Luna...<br><br>
+                Ya quiero tenerte entre mis brazos,<br>
+                sentir tu respiración contra mi pecho,<br>
+                y demostrarte con hechos todo lo que te acabo de decir...<br><br>
+                <strong style="color: #ffd700; font-size: 1.4em;">
+                    Prepárate para lo que viene, Señorita Elizabeth 😏🔥
+                </strong><br><br>
+                Esta espera valdrá cada segundo...<br>
+                Te amo infinitamente 💖
             </p>
-            <img src="ultimas_flores.jpg" alt="Flores recientes" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.3s ease;" onclick="openModal(this.src)" />
-            <div style="background: linear-gradient(135deg, #ffecd2, #fcb69f); padding: 30px; border-radius: 15px; text-align: center; margin-top: 20px;">
-                <p style="font-size: 1.3em; color: #333; font-weight: bold;">
-                    "No necesito una razón para hacerte sonreír, mi Luna hermosa"
-                </p>
-            </div>
         </div>
-
-        <!-- Sección Bloqueada -->
-        <div class="locked-section" id="lockedSection">
-            <div class="locked-content">
-                <div class="lock-heart">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Corazón -->
-                        <path d="M100,170 C100,170 30,120 30,80 C30,50 50,30 75,30 C85,30 95,35 100,45 C105,35 115,30 125,30 C150,30 170,50 170,80 C170,120 100,170 100,170 Z" 
-                              fill="url(#secretHeartGradient)" stroke="white" stroke-width="3"/>
-                        
-                        <!-- Gradiente del corazón -->
-                        <defs>
-                            <linearGradient id="secretHeartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#ff6ec7;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#a78bfa;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        
-                        <!-- Letra J -->
-                        <text x="60" y="95" font-family="Georgia, serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle">J</text>
-                        
-                        <!-- Y en el medio -->
-                        <text x="100" y="100" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">y</text>
-                        
-                        <!-- Letra E -->
-                        <text x="140" y="95" font-family="Georgia, serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle">E</text>
-                    </svg>
-                </div>
-                <h2 style="font-size: 2.5em; margin-bottom: 15px;">Mensaje Especial Bloqueado</h2>
-                <p style="font-size: 1.3em; margin-bottom: 20px;">
-                    Presiona el botón para abrir el mensaje secreto
-                </p>
-                <button class="unlock-btn" onclick="showPasswordInput()">
-                    Abrir Mensaje Secreto 💖
-                </button>
-                <div class="password-input" id="passwordInput">
-                    <input type="text" id="password" placeholder="Escribe la contraseña aquí" 
-                           style="padding: 15px 25px; font-size: 1.2em; border: none; border-radius: 30px; width: 300px; max-width: 90%; text-align: center;" />
-                    <br>
-                    <button class="unlock-btn" onclick="checkPassword()">Desbloquear 💖</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contenido Oculto -->
-        <div class="section hidden-content" id="hiddenContent">
-            <h2 class="section-title">💕 Para Mi Luna Hermosa 💕</h2>
-            <div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 40px; border-radius: 15px; color: white; margin: 20px 0;">
-                <p style="font-size: 1.4em; line-height: 2; text-align: center;">
-                    <strong>Mi Iris, Mi Elizabeth, Mi Luna Preciosa:</strong>
-                </p>
-                <p style="font-size: 1.2em; line-height: 1.8; margin-top: 20px;">
-                    Estos 3 meses han sido los más increíbles de mi vida. Aunque nuestra relación 
-                    ha sido virtual, lo que siento por ti es más real que cualquier cosa que haya 
-                    experimentado antes. Eres mi luz en la oscuridad, mi calma en la tormenta, 
-                    mi razón para sonreír cada día.
-                </p>
-                <p style="font-size: 1.2em; line-height: 1.8; margin-top: 20px;">
-                    Eres mi Luna porque iluminas mis noches más oscuras. Eres mi Iris porque 
-                    veo el mundo de manera diferente desde que estás en mi vida. Eres mi Elizabeth 
-                    porque eres única, especial, incomparable.
-                </p>
-                <p style="font-size: 1.3em; line-height: 1.8; margin-top: 20px; font-weight: bold;">
-                    Te amo más de lo que las palabras pueden expresar. Aquí está a muchos más meses 
-                    juntos, a seguir construyendo esta historia hermosa, y a seguir demostrándote 
-                    que la distancia no es nada cuando el amor es real.
-                </p>
-                <p style="font-size: 1.5em; margin-top: 30px; text-align: center;">
-                    ☀️ Soy tu Sol y tú eres mi Luna 🌙
-                </p>
-                <p style="font-size: 1.8em; margin-top: 20px; text-align: center; font-weight: bold;">
-                    ¡Felices 3 meses, mi amor! 💖
-                </p>
-            </div>
-            <div style="text-align: center; margin-top: 30px; font-size: 1.2em; color: #667eea;">
-                <p>Con todo mi amor,</p>
-                <p style="font-size: 1.5em; margin-top: 10px; font-weight: bold;">Tu Sol ☀️</p>
-            </div>
-        </div>
-
-        <!-- Fin del contenido principal -->
-        </div>
-
     </div>
 
+    <div class="warning-modal" id="warningModal">
+        <div class="warning-content">
+            <h3>¿Estás segura? 🤔</h3>
+            <p>
+                Piénsalo bien, mi amor...<br><br>
+                Sabes que me muero por ti,<br>
+                que te necesito,<br>
+                que esta distancia ha sido una tortura...<br><br>
+                <strong>¿De verdad quieres hacerme sufrir más? 😢</strong>
+            </p>
+            <button class="think-btn" id="thinkBtn">Tienes razón... Sí quiero 💕</button>
+        </div>
+    </div>
+    
     <script>
-        // Desbloquear contenido principal
-        function unlockMainContent() {
-            const password = document.getElementById('mainPassword').value.trim().toLowerCase();
-            
-            if (password === 'elsolylaluna') {
-                document.getElementById('initialLock').style.display = 'none';
-                document.getElementById('mainContent').classList.add('unlocked');
-                
-                // Crear explosión de corazones
-                for (let i = 0; i < 30; i++) {
-                    setTimeout(() => {
-                        const heart = document.createElement('div');
-                        heart.className = 'heart';
-                        heart.innerHTML = '💖';
-                        heart.style.left = Math.random() * 100 + '%';
-                        heart.style.animationDuration = '3s';
-                        document.getElementById('heartRain').appendChild(heart);
-                    }, i * 50);
-                }
-                
-                // Scroll suave al inicio del contenido
-                setTimeout(() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 100);
-            } else {
-                alert('¡Ups! Esa no es la contraseña correcta. Pista: somos el sol y la luna juntos 🌙☀️');
-            }
-        }
-
-        // Crear estrellas
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            for (let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
-
-        // Abrir modal con imagen
-        function openModal(src) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'block';
-            modalImg.src = src;
-            setTimeout(() => modal.scrollTop = 0, 10);
-        }
-
-        // Cerrar modal
-        function closeModal(e) {
-            if (e && e.target.id !== 'imageModal' && !e.target.classList.contains('close-modal')) {
-                return;
-            }
-            const modal = document.getElementById('imageModal');
-            modal.style.display = 'none';
-        }
-
-        // Cerrar modal con tecla ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const formSection = document.getElementById('formSection');
+        const responseSection = document.getElementById('responseSection');
+        const warningModal = document.getElementById('warningModal');
+        const thinkBtn = document.getElementById('thinkBtn');
+        
+        yesBtn.addEventListener('click', () => {
+            formSection.style.display = 'none';
+            responseSection.style.display = 'block';
         });
-
-        // Crear corazones cayendo
-        function createHearts() {
-            const heartRain = document.getElementById('heartRain');
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = '💖';
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
-                heart.style.animationDelay = Math.random() * 2 + 's';
-                heartRain.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 12000);
-            }, 3000);
-        }
-
-        function showPasswordInput() {
-            document.getElementById('passwordInput').classList.add('active');
-        }
-
-        function checkPassword() {
-            const password = document.getElementById('password').value.trim().toLowerCase();
-            // La contraseña es: elsolylaluna
-            const validPasswords = ['elsolylaluna'];
-            
-            if (validPasswords.includes(password)) {
-                document.getElementById('lockedSection').style.display = 'none';
-                document.getElementById('hiddenContent').classList.remove('hidden-content');
-                document.getElementById('hiddenContent').style.animation = 'fadeInUp 1s ease-out';
-                
-                // Crear más corazones al desbloquear
-                for (let i = 0; i < 20; i++) {
-                    setTimeout(() => {
-                        const heart = document.createElement('div');
-                        heart.className = 'heart';
-                        heart.innerHTML = '💖';
-                        heart.style.left = Math.random() * 100 + '%';
-                        heart.style.animationDuration = '3s';
-                        document.getElementById('heartRain').appendChild(heart);
-                    }, i * 100);
-                }
-            } else {
-                alert('¡Ups! Esa no es la contraseña correcta. Pista: tiene que ver con la sorpresa que recibiste hoy 😊');
-            }
-        }
-
-        // Inicializar animaciones
-        createStars();
-        createHearts();
-
-        // Smooth scroll para las secciones
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        
+        noBtn.addEventListener('click', () => {
+            warningModal.style.display = 'flex';
+        });
+        
+        thinkBtn.addEventListener('click', () => {
+            warningModal.style.display = 'none';
+            formSection.style.display = 'none';
+            responseSection.style.display = 'block';
         });
     </script>
 </body>
