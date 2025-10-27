@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Qué Tanto Conoces a Tu Novio?</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Para Elizabeth 💜 Mi Reina de Clash</title>
     <style>
         * {
             margin: 0;
@@ -13,871 +12,350 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 40px 20px;
-            position: relative;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
             overflow-x: hidden;
-            overflow-y: auto;
         }
 
-        .hearts-background {
+        .background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .floating-heart {
-            position: absolute;
-            font-size: 25px;
-            animation: float 12s infinite;
-            opacity: 0.4;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.4;
-            }
-            90% {
-                opacity: 0.4;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+            background-image: url('clash_conminovia1.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25;
+            z-index: -1;
+            filter: blur(2px);
         }
 
         .container {
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-            padding: 50px 40px;
-            max-width: 700px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in;
+            border: 3px solid rgba(255, 215, 0, 0.5);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            color: #ffd700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #ff69b4;
+        }
+
+        .intro-text {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            font-size: 1.3em;
+            line-height: 1.8;
+            animation: slideUp 1s ease-out;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+        }
+
+        .card-section {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 0.8s ease-out forwards;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .card-section:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+
+        .card-section:nth-child(1) { animation-delay: 0.2s; }
+        .card-section:nth-child(2) { animation-delay: 0.4s; }
+        .card-section:nth-child(3) { animation-delay: 0.6s; }
+        .card-section:nth-child(4) { animation-delay: 0.8s; }
+        .card-section:nth-child(5) { animation-delay: 1s; }
+        .card-section:nth-child(6) { animation-delay: 1.2s; }
+        .card-section:nth-child(7) { animation-delay: 1.4s; }
+
+        .card-image {
+            flex-shrink: 0;
+            width: 150px;
+            height: 180px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+            transition: transform 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-image img {
             width: 100%;
-            position: relative;
-            z-index: 1;
-            min-height: 400px;
-            animation: slideIn 0.6s ease;
-            margin: 20px auto;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-content h2 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .card-content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .final-message {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.6);
+            border: 3px solid rgba(255, 215, 0, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .final-message h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .final-message p {
+            font-size: 1.4em;
+            line-height: 1.8;
+        }
+
+        .hearts {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
-        }
-
-        .welcome-screen {
-            text-align: center;
-        }
-
-        .welcome-screen h1 {
-            color: #764ba2;
-            font-size: 2.8em;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.02); }
         }
 
-        .welcome-screen .subtitle {
-            color: #667eea;
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            font-style: italic;
-        }
-
-        .start-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 20px 50px;
-            font-size: 1.5em;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(118, 75, 162, 0.5);
-            font-weight: bold;
-        }
-
-        .start-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(118, 75, 162, 0.7);
-        }
-
-        .question-screen {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.5s ease;
-            border-radius: 10px;
-        }
-
-        .question-counter {
-            text-align: center;
-            color: #764ba2;
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .question-content {
-            text-align: center;
-        }
-
-        .question-text {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 40px;
-            font-weight: bold;
-            line-height: 1.4;
-        }
-
-        .answer-input {
-            width: 100%;
-            padding: 18px;
-            border: 3px solid #f093fb;
-            border-radius: 15px;
-            font-size: 1.3em;
-            text-align: center;
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-        }
-
-        .answer-input:focus {
-            outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 20px rgba(118, 75, 162, 0.4);
-            transform: scale(1.02);
-        }
-
-        .slider-container {
-            padding: 20px 0;
-        }
-
-        .slider-wrapper {
-            position: relative;
-            margin: 30px 0;
-        }
-
-        .slider {
-            width: 100%;
-            height: 15px;
-            border-radius: 10px;
-            background: linear-gradient(90deg, #90EE90 0%, #FFD700 50%, #FF6B6B 100%);
-            outline: none;
-            cursor: pointer;
-            -webkit-appearance: none;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
-            cursor: pointer;
-            border: 4px solid #764ba2;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.2s ease;
-        }
-
-        .slider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .slider::-moz-range-thumb {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
-            cursor: pointer;
-            border: 4px solid #764ba2;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .slider-value {
-            text-align: center;
-            font-size: 3em;
-            color: #764ba2;
-            font-weight: bold;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .slider-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            color: #666;
-            font-size: 1.1em;
-        }
-
-        .next-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 18px 45px;
-            font-size: 1.3em;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
-            font-weight: bold;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .next-btn:hover:not(:disabled) {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(118, 75, 162, 0.6);
-        }
-
-        .next-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .result-screen {
-            display: none;
-            text-align: center;
-            animation: fadeIn 1s ease;
-        }
-
-        .result-title {
-            color: #764ba2;
-            font-size: 3em;
-            margin-bottom: 30px;
-            animation: bounce 1s ease;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .heart-initials {
-            font-size: 120px;
-            margin: 30px 0;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.15); }
-            50% { transform: scale(1); }
-        }
-
-        .final-message {
-            color: #764ba2;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin: 30px 0;
-            line-height: 1.8;
-        }
-
-        .love-message {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffeef8 100%);
-            padding: 35px;
-            border-radius: 20px;
-            margin: 30px 0;
-            border: 3px solid #f093fb;
-            line-height: 1.9;
-            color: #333;
-            font-size: 1.1em;
-            text-align: left;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .love-message p {
-            margin-bottom: 15px;
-        }
-
-        .couple-image {
-            margin: 30px 0;
-            max-width: 300px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 5px solid #f093fb;
-        }
-
-        .score-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 20px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .score-title {
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-
-        .score-number {
-            font-size: 4em;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-
-        .answers-review {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            margin: 30px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .answers-review h2 {
-            color: #764ba2;
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .answer-item {
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid #ccc;
-        }
-
-        .answer-item.correct {
-            background: #e8f5e9;
-            border-left-color: #4caf50;
-        }
-
-        .answer-item.incorrect {
-            background: #ffebee;
-            border-left-color: #f44336;
-        }
-
-        .answer-item.partial {
-            background: #fff3e0;
-            border-left-color: #ff9800;
-        }
-
-        .answer-question {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .answer-yours {
-            color: #666;
-            margin: 8px 0;
-            font-size: 1em;
-        }
-
-        .answer-correct {
-            color: #4caf50;
-            font-weight: bold;
-            margin: 8px 0;
-            font-size: 1em;
-        }
-
-        .answer-icon {
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 50px;
-            border-radius: 25px;
-            text-align: center;
-            max-width: 450px;
-            animation: bounceIn 0.6s ease;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-
-        .modal-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-
-        .modal-text {
-            color: #764ba2;
-            font-size: 1.5em;
-            margin: 25px 0;
-            line-height: 1.7;
-            font-weight: bold;
-        }
-
-        .close-modal {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1.2em;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .close-modal:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(118, 75, 162, 0.6);
-        }
-
-        .select-answer {
-            width: 100%;
-            padding: 18px;
-            border: 3px solid #f093fb;
-            border-radius: 15px;
-            font-size: 1.3em;
-            text-align: center;
-            cursor: pointer;
-            margin-bottom: 30px;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .select-answer:focus {
-            outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 20px rgba(118, 75, 162, 0.4);
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
+        @media (max-width: 768px) {
+            .card-section {
+                flex-direction: column !important;
+                text-align: center;
             }
-            .question-text {
-                font-size: 1.5em;
+
+            .header h1 {
+                font-size: 1.8em;
             }
-            .welcome-screen h1 {
-                font-size: 2em;
+
+            .card-content h2 {
+                font-size: 1.4em;
+            }
+
+            .card-image {
+                width: 120px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hearts-background" id="heartsContainer"></div>
+    <div class="background"></div>
     
     <div class="container">
-        <!-- Pantalla de Bienvenida -->
-        <div id="welcomeScreen" class="welcome-screen">
-            <h1><i class="fas fa-heart"></i> ¿Qué Tanto Conoces a Tu Novio? <i class="fas fa-heart"></i></h1>
-            <p class="subtitle">Demuestra cuánto sabes sobre tu amor</p>
-            <button class="start-btn" onclick="startQuiz()">
-                <i class="fas fa-play"></i> Comenzar
-            </button>
+        <div class="header">
+            <h1>💜 Para Elizabeth 💜</h1>
+            <p>Mi Reina de Clash Royale</p>
+            <div class="hearts">💕 👑 💕</div>
         </div>
 
-        <!-- Pantalla de Preguntas -->
-        <div id="questionScreen" class="question-screen">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <div class="question-counter" id="questionCounter"></div>
-            <div class="question-content" id="questionContent"></div>
-            <button class="next-btn" id="nextBtn" onclick="nextQuestion()">
-                Siguiente <i class="fas fa-arrow-right"></i>
-            </button>
+        <div class="intro-text">
+            <p><strong>Oye amor, ¿sabes por qué nuestro amor tiene algo de Clash Royale?</strong></p>
+            <p>Porque cada carta representa lo que siento por ti y lo que somos juntos... 💖</p>
         </div>
 
-        <!-- Pantalla de Resultados -->
-        <div id="resultScreen" class="result-screen">
-            <h1 class="result-title">¡Increíble! <i class="fas fa-star"></i></h1>
-            
-            <div class="score-container">
-                <div class="score-title">Tu Puntuación</div>
-                <div class="score-number" id="scoreNumber">0/12</div>
-                <div id="scoreMessage"></div>
+        <div class="card-section">
+            <div class="card-image">
+                <img src="gigante.webp" alt="Gigante">
             </div>
-
-            <div class="answers-review" id="answersReview"></div>
-
-            <div class="heart-initials">❤️ J & E ❤️</div>
-            
-            <div class="final-message">
-                ¡Conoces muy bien a tu novio! 💕<br>
-                Y aún te falta conocerlo más...<br>
-                Cada día aprenden cosas nuevas uno del otro.<br>
-                Serán una gran pareja. 💑
-            </div>
-
-            <img src="JyE.png" alt="J y E" class="couple-image" onerror="this.style.display='none'">
-
-            <div class="love-message">
-                <p><strong>Mi amor hermoso,</strong></p>
-                <p>Me encantó ir a visitarte, y aunque solo fueron unas cuantas horas, quiero que sepas que disfruté cada minuto y segundo a tu lado. La verdad, me llena de tristeza tener que esperar tanto para verte de nuevo... otros dos meses, o poco menos, amor.</p>
-                <p>Pero ya casi estaré viviendo donde tú, y nos veremos todos los días. Haremos el amor, comeremos, cenaremos, iremos al cine y viviremos una etapa inolvidable. Ahora ya lo es, pero mejorará aún más.</p>
-                <p>Te amo. Perdona si soy un poquito celoso a veces, mi amor hermosa. Tú eres el sol para mi luna. Aunque ahora ya sabes a dónde llego y puedes enviarme algo jeje.</p>
-                <p><strong>Te amo mucho, mi vida hermosa. 💕✨</strong></p>
+            <div class="card-content">
+                <h2>🏔️ Mi Amor es GIGANTE</h2>
+                <p>Como el gigante que protege todo a su paso, mi amor por ti es enorme, fuerte e imparable. Cada día crece más y más, y nada puede detenerlo. Eres mi torre más valiosa, Elizabeth, y la protegeré siempre.</p>
             </div>
         </div>
-    </div>
 
-    <!-- Modal de Duda -->
-    <div id="doubtModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-icon">💔</div>
-            <div class="modal-text">
-                ¿Por qué dudas, amor?<br><br>
-                Obviamente un millón de veces te volvería a elegir, mi vida. 💕
+        <div class="card-section">
+            <div class="card-image">
+                <img src="princesa.webp" alt="Princesa">
             </div>
-            <button class="close-modal" onclick="closeModal()">
-                Lo sé, mi amor 💖
-            </button>
+            <div class="card-content">
+                <h2>👸 Tú eres Mi PRINCESA</h2>
+                <p>Hermosa, elegante y poderosa. Como la princesa que alcanza desde lejos, tú tocas mi corazón sin importar la distancia. Eres mi carta legendaria, la más especial de todas, la que todos desearían tener pero que solo yo tengo el privilegio de amar.</p>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <div class="card-image">
+                <img src="caballero.webp" alt="Caballero">
+            </div>
+            <div class="card-content">
+                <h2>⚔️ Yo soy tu CABALLERO</h2>
+                <p>Leal, valiente y siempre a tu lado. Como el caballero que nunca falla, yo estaré contigo en cada batalla, protegiéndote de todo mal. Soy tu escudo contra las tristezas y tu espada contra los problemas. Juntos somos invencibles.</p>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <div class="card-image">
+                <img src="valquiria.webp" alt="Valquiria">
+            </div>
+            <div class="card-content">
+                <h2>💪 Tú eres como la VALQUIRIA</h2>
+                <p>Fuerte, trabajadora e imparable. Mi niña hermosa que no se rinde ante nada. Luchas por tus sueños con determinación y esa fuerza tuya me inspira cada día. Eres guerrera y princesa al mismo tiempo, ¡eso te hace única!</p>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <div class="card-image">
+                <img src="torre.webp" alt="Torre">
+            </div>
+            <div class="card-content">
+                <h2>🏰 Nos PROTEGEMOS como Torres</h2>
+                <p>Cuando tú no estás, siento que una de mis torres se cae. Nos cuidamos mutuamente porque somos el equipo perfecto. Juntos somos más fuertes, y cuando uno está débil, el otro lo levanta. Así es nuestro amor, Elizabeth.</p>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <div class="card-image">
+                <img src="dragon_infernal.webp" alt="Dragón Infernal">
+            </div>
+            <div class="card-content">
+                <h2>🔥 El ENEMIGO ataca como Dragón Infernal</h2>
+                <p>Los celos, las dudas, la distancia, los problemas... Como un dragón infernal o un montapuercos, intentan derribarnos. Pero no lo permitiremos, amor. Son las tropas enemigas que enfrentamos juntos.</p>
+            </div>
+        </div>
+
+        <div class="card-section">
+            <div class="card-image">
+                <img src="arqueras.webp" alt="Arqueras">
+            </div>
+            <div class="card-content">
+                <h2>🏹 UNIDOS como Arqueras</h2>
+                <p>Siempre juntas, siempre apoyándose. Así somos nosotros, Elizabeth. Dos fuerzas que trabajan en equipo perfecto. Los obstáculos no nos detendrán porque avanzamos juntos, de la mano, hacia la victoria de nuestro amor.</p>
+            </div>
+        </div>
+
+        <div class="final-message">
+            <h2>👑 Victoria Royale: Nuestro Amor 👑</h2>
+            <div class="hearts">❤️ 💜 💙 💚 💛</div>
+            <p><strong>Elizabeth, mi amor:</strong></p>
+            <p>Como en Clash Royale, la vida nos pone batallas difíciles, pero mientras estemos juntos, siempre conseguiremos la Victoria Royale. Tú eres mi carta legendaria, mi reina, mi princesa, mi todo.</p>
+            <p><strong>Eres la razón por la que juego esta partida llamada vida, y contigo a mi lado, siempre ganaré. 💜</strong></p>
+            <p style="margin-top: 30px; font-size: 1.6em;">Te amo infinito, mi amor 💕👑💕</p>
+            <p style="font-size: 1.1em; margin-top: 20px; opacity: 0.9;">~ Tu Caballero que siempre te protegerá ~</p>
         </div>
     </div>
 
     <script>
-        const questions = [
-            {
-                text: "¿Cuál es el color favorito de tu novio?",
-                type: "text",
-                placeholder: "Escribe tu respuesta...",
-                correctAnswers: ["rojo"],
-                explanation: "Su color favorito es el rojo"
-            },
-            {
-                text: "¿Quién es su mejor amigo?",
-                type: "text",
-                placeholder: "Escribe el nombre...",
-                correctAnswers: ["sacramento"],
-                explanation: "Su mejor amigo es Sacramento"
-            },
-            {
-                text: "¿Quién es su mejor amiga?",
-                type: "text",
-                placeholder: "Escribe el nombre...",
-                correctAnswers: ["pamela"],
-                explanation: "Su mejor amiga es Pamela"
-            },
-            {
-                text: "¿Qué tan celoso es tu novio?",
-                type: "slider",
-                min: 1,
-                max: 100,
-                correctRange: [1, 100],
-                explanation: "Es un poquito celoso, pero por amor"
-            },
-            {
-                text: "¿Cuál es su comida favorita?",
-                type: "text",
-                placeholder: "Escribe tu respuesta...",
-                correctAnswers: ["carne asada", "carne"],
-                explanation: "Su comida favorita es la carne asada"
-            },
-            {
-                text: "¿Qué es lo que más disfruta hacer?",
-                type: "text",
-                placeholder: "Escribe tu respuesta...",
-                correctAnswers: ["tocar instrumento", "tocar", "musica", "música"],
-                explanation: "Lo que más disfruta es tocar instrumentos musicales"
-            },
-            {
-                text: "¿Cuál es su instrumento preferido?",
-                type: "text",
-                placeholder: "Escribe tu respuesta...",
-                correctAnswers: ["bajo electrico", "bajo eléctrico", "bajo"],
-                explanation: "Su instrumento preferido es el bajo eléctrico"
-            },
-            {
-                text: "¿Conoces un momento importante en su vida?",
-                type: "text",
-                placeholder: "Describe ese momento...",
-                correctAnswers: ["conocerte", "conocer", "contigo", "cuando te conoci", "cuando te conocí"],
-                explanation: "El momento más importante de su vida fue conocerte, mi amor. Ese fue el mejor momento de su vida"
-            },
-            {
-                text: "¿Cuál es su videojuego favorito actualmente?",
-                type: "text",
-                placeholder: "Escribe tu respuesta...",
-                correctAnswers: ["clash royale", "clash"],
-                explanation: "Su videojuego favorito actualmente es Clash Royale"
-            },
-            {
-                text: "¿Qué planes tiene a futuro?",
-                type: "text",
-                placeholder: "Escribe tu respuesta...",
-                correctAnswers: ["crecer", "familia", "casarse", "casar", "profesional", "contigo", "carrera"],
-                explanation: "Sus planes a futuro son crecer profesionalmente y formar una familia contigo"
-            },
-            {
-                text: "¿Por qué se enamoró tu novio de ti?",
-                type: "text",
-                placeholder: "Escribe tu respuesta...",
-                correctAnswers: ["linda", "dulce", "hermosa", "bonita", "voz", "ser"],
-                explanation: "Se enamoró porque le pareciste una chica muy linda, le encantó tu voz, lo dulce que eres y tu manera de ser. Te fascina, mi niña hermosa"
-            },
-            {
-                text: "¿Crees que tu novio está tan enamorado de ti?",
-                type: "select",
-                options: ["Selecciona una respuesta", "Sí 💕", "No"],
-                correctAnswers: ["Sí 💕"],
-                explanation: "¡Por supuesto! Un millón de veces te volvería a elegir"
-            }
-        ];
-
-        let currentQuestion = 0;
-        let answers = [];
-
-        // Crear corazones flotantes
-        function createFloatingHearts() {
-            const container = document.getElementById('heartsContainer');
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                heart.innerHTML = ['💕', '💖', '💗', '💝'][Math.floor(Math.random() * 4)];
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 12 + 's';
-                heart.style.animationDuration = (10 + Math.random() * 8) + 's';
-                container.appendChild(heart);
-            }
-        }
-        createFloatingHearts();
-
-        function startQuiz() {
-            document.getElementById('welcomeScreen').style.display = 'none';
-            document.getElementById('questionScreen').style.display = 'block';
-            showQuestion();
-        }
-
-        function showQuestion() {
-            const question = questions[currentQuestion];
-            const content = document.getElementById('questionContent');
-            const counter = document.getElementById('questionCounter');
-            const progress = document.getElementById('progressFill');
+        // Efecto de partículas de corazones
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💜';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.opacity = Math.random() * 0.5 + 0.3;
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+            heart.style.transition = 'all 4s ease-in-out';
             
-            counter.textContent = `Pregunta ${currentQuestion + 1} de ${questions.length}`;
-            progress.style.width = ((currentQuestion + 1) / questions.length * 100) + '%';
-
-            let html = `<div class="question-text">${question.text}</div>`;
-
-            if (question.type === 'text') {
-                html += `<input type="text" class="answer-input" id="answer" placeholder="${question.placeholder}">`;
-            } else if (question.type === 'slider') {
-                html += `
-                    <div class="slider-container">
-                        <div class="slider-value" id="sliderValue">50</div>
-                        <div class="slider-wrapper">
-                            <input type="range" min="${question.min}" max="${question.max}" value="50" class="slider" id="answer">
-                        </div>
-                        <div class="slider-labels">
-                            <span>😇 Nada celoso</span>
-                            <span>😤 Muy celoso</span>
-                        </div>
-                    </div>
-                `;
-            } else if (question.type === 'select') {
-                html += `<select class="select-answer" id="answer">`;
-                question.options.forEach(opt => {
-                    html += `<option value="${opt}">${opt}</option>`;
-                });
-                html += `</select>`;
-            }
-
-            content.innerHTML = html;
-
-            // Event listener para slider
-            if (question.type === 'slider') {
-                const slider = document.getElementById('answer');
-                const sliderValue = document.getElementById('sliderValue');
-                slider.addEventListener('input', function() {
-                    sliderValue.textContent = this.value;
-                });
-            }
-
-            // Event listener para select
-            if (question.type === 'select') {
-                document.getElementById('answer').addEventListener('change', function() {
-                    if (this.value === 'No' && currentQuestion === questions.length - 1) {
-                        document.getElementById('doubtModal').style.display = 'flex';
-                        this.value = 'Sí 💕';
-                    }
-                });
-            }
-
-            // Focus en input de texto
-            if (question.type === 'text') {
-                setTimeout(() => document.getElementById('answer').focus(), 100);
-            }
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.style.top = '-10vh';
+                heart.style.opacity = '0';
+                heart.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+            }, 100);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4100);
         }
 
-        function nextQuestion() {
-            const answerElement = document.getElementById('answer');
-            const answer = answerElement.value;
-
-            if (!answer || answer === 'Selecciona una respuesta') {
-                answerElement.style.borderColor = 'red';
-                setTimeout(() => answerElement.style.borderColor = '#f093fb', 1000);
-                return;
-            }
-
-            answers.push(answer);
-            currentQuestion++;
-
-            if (currentQuestion < questions.length) {
-                showQuestion();
-            } else {
-                showResults();
-            }
+        // Crear corazones cada 2 segundos
+        setInterval(createHeart, 2000);
+        
+        // Crear algunos corazones al inicio
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createHeart, i * 400);
         }
 
-        function showResults() {
-            document.getElementById('questionScreen').style.display = 'none';
-            document.getElementById('resultScreen').style.display = 'block';
-            
-            // Calcular puntuación
-            let score = 0;
-            let reviewHTML = '<h2><i class="fas fa-clipboard-check"></i> Revisión de Respuestas</h2>';
-            
-            answers.forEach((answer, index) => {
-                const question = questions[index];
-                let isCorrect = false;
-                let isPartial = false;
-                let icon = '';
-                let statusClass = '';
-                
-                if (question.type === 'slider') {
-                    const numAnswer = parseInt(answer);
-                    if (numAnswer >= question.correctRange[0] && numAnswer <= question.correctRange[1]) {
-                        isCorrect = true;
-                        score++;
-                    }
-                } else if (question.type === 'text') {
-                    const normalizedAnswer = answer.toLowerCase().trim();
-                    const matchFound = question.correctAnswers.some(correct => 
-                        normalizedAnswer.includes(correct.toLowerCase())
-                    );
-                    
-                    if (matchFound) {
-                        isCorrect = true;
-                        score++;
-                    } else {
-                        // Verificar si al menos tiene alguna palabra clave
-                        const hasKeyword = question.correctAnswers.some(correct => 
-                            normalizedAnswer.split(' ').some(word => 
-                                correct.toLowerCase().includes(word) && word.length > 3
-                            )
-                        );
-                        if (hasKeyword) {
-                            isPartial = true;
-                            score += 0.5;
-                        }
-                    }
-                } else if (question.type === 'select') {
-                    if (question.correctAnswers.includes(answer)) {
-                        isCorrect = true;
-                        score++;
-                    }
-                }
-                
-                if (isCorrect) {
-                    icon = '<span class="answer-icon">✅</span>';
-                    statusClass = 'correct';
-                } else if (isPartial) {
-                    icon = '<span class="answer-icon">⚠️</span>';
-                    statusClass = 'partial';
-                } else {
-                    icon = '<span class="answer-icon">❌</span>';
-                    statusClass = 'incorrect';
-                }
-                
-                reviewHTML += `
-                    <div class="answer-item ${statusClass}">
-                        ${icon}
-                        <div class="answer-question">${question.text}</div>
-                        <div class="answer-yours">Tu respuesta: <strong>${answer}</strong></div>
-                        ${!isCorrect ? `<div class="answer-correct">💡 ${question.explanation}</div>` : ''}
-                    </div>
-                `;
+        // Efecto de hover en las tarjetas
+        document.querySelectorAll('.card-section').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.boxShadow = '0 10px 40px rgba(255, 215, 0, 0.4)';
             });
             
-            document.getElementById('answersReview').innerHTML = reviewHTML;
-            document.getElementById('scoreNumber').textContent = `${Math.round(score)}/12`;
-            
-            // Mensaje según puntuación
-            let message = '';
-            if (score >= 10) {
-                message = '¡Excelente! Conoces muy bien a tu novio 💕';
-            } else if (score >= 7) {
-                message = '¡Muy bien! Sabes bastante sobre él 😊';
-            } else if (score >= 5) {
-                message = '¡Bien! Pero aún hay mucho por descubrir 💭';
-            } else {
-                message = '¡Hay mucho que aprender sobre él! 📚';
-            }
-            
-            document.getElementById('scoreMessage').textContent = message;
-        }
-
-        function closeModal() {
-            document.getElementById('doubtModal').style.display = 'none';
-        }
-
-        // Enter para siguiente pregunta
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && document.getElementById('questionScreen').style.display === 'block') {
-                nextQuestion();
-            }
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+            });
         });
     </script>
 </body>
